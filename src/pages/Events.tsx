@@ -39,9 +39,9 @@ const Events = () => {
       date: "November 2024",
       description: "DeKUMSA members visited Huruma Children's Home with donations and spent time with the children.",
       images: [
-        "/lovable-uploads/ca3b50d9-0e17-4bd1-9a46-68976f6c72ca.png",
-        "/lovable-uploads/afe7df02-4f5b-4b34-8b73-a3c8b93cf58b.png",
-        "/lovable-uploads/33c2deb0-b14c-4901-bd79-45b3c7b15031.png"
+        "/lovable-uploads/90b223e9-3f08-4b50-9513-22cfd0f7de78.png",
+        "/lovable-uploads/d359260a-cc06-47e8-9519-921b695fce9d.png",
+        "/lovable-uploads/c6d38eb8-af24-4c65-9e7b-328177cc9816.png"
       ],
       participants: "25+ members"
     },
@@ -50,9 +50,9 @@ const Events = () => {
       date: "October 2024", 
       description: "Adventurous hiking trip to Mau Caves in Nyeri that brought members together in nature's beauty.",
       images: [
-        "/lovable-uploads/9bcd49d8-c17d-4503-b1c4-1cda9d74a0d6.png",
-        "/lovable-uploads/ab87b3f3-7dde-4e9c-af37-2f9a0a4cd66b.png",
-        "/lovable-uploads/fd66e8be-e1df-4e36-a3f5-7dd00ed46e4f.png"
+        "/lovable-uploads/9d8f531e-66db-4da0-a27e-1a5811f78113.png",
+        "/lovable-uploads/419836e1-c498-4055-9d14-e6370004edeb.png",
+        "/lovable-uploads/7498a6ea-e3d2-4961-885f-7135a4f81e77.png"
       ],
       participants: "30+ members"
     },
@@ -61,9 +61,9 @@ const Events = () => {
       date: "September 2024",
       description: "Educational visit to Karatina University that strengthened inter-university bonds.",
       images: [
-        "/lovable-uploads/21f0b00e-0ee1-47c3-b36e-e8b5a24b1f8c.png",
-        "/lovable-uploads/7e4b11a2-9e8d-4e82-8d81-15b4f3b91075.png",
-        "/lovable-uploads/a2e2fd8a-99e0-4b49-b1aa-fc1a2bbef41c.png"
+        "/lovable-uploads/6762b8e8-0966-47e7-8a81-2ef19b7b9dfb.png",
+        "/lovable-uploads/1e4138df-3fe7-4a60-8049-7bc017714c27.png",
+        "/lovable-uploads/85d4e858-3fee-401f-a945-61b90c9b42bd.png"
       ],
       participants: "40+ members"
     }
@@ -121,9 +121,11 @@ const Events = () => {
                     <MapPin className="w-4 h-4 mr-1" />
                     <span>{event.location}</span>
                   </div>
-                  <Button className="w-full bg-red-600 hover:bg-red-700">
-                    Register for Event
-                  </Button>
+                  {event.title !== "Weekly Meetings" && (
+                    <Button className="w-full bg-red-600 hover:bg-red-700">
+                      Register for Event
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             ))}
