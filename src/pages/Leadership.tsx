@@ -32,7 +32,7 @@ const Leadership = () => {
       name: "Edith Asachita",
       position: "Treasurer",
       phone: "0703299411",
-      image: "/lovable-uploads/39bd1f1f-ddf7-4ca3-93d8-efee46c591da.png",
+      image: "/lovable-uploads/5e4b3a83-07b5-458d-8ae6-26ade4ba6358.png",
       message: "Managing our finances with integrity and accountability. Every shilling is invested wisely for our members' benefit."
     },
     {
@@ -46,7 +46,7 @@ const Leadership = () => {
       name: "Emmanuel Juma",
       position: "Public Relations Officer",
       phone: "0741224547",
-      image: "/lovable-uploads/5e4b3a83-07b5-458d-8ae6-26ade4ba6358.png",
+            image: "/lovable-uploads/36522acf-48f9-4c5e-9c41-3e03f4aa03e6.png",
       message: "Building bridges and maintaining our reputation. Connecting DeKUMSA with the wider university community."
     },
     {
@@ -60,7 +60,7 @@ const Leadership = () => {
       name: "Beatrice Shanyisa",
       position: "Patron",
       phone: null,
-      image: "/lovable-uploads/772c43f0-bef7-4a46-bc0d-df477741f96d.png",
+      image: null,
       message: "Providing guidance and wisdom to our leadership team. Ensuring we stay true to our values and mission."
     }
   ];

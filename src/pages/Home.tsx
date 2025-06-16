@@ -8,8 +8,7 @@ const Home = () => {
   const announcements = [
     "📅 Weekly Meetings Every Friday Room 14 SOB from 5PM",
     "🎉 Upcoming events: Charity and Mulembe Bash - dates to be communicated",
-    "❤️ Welfare support applications are being reviewed",
-    "📱 Join our WhatsApp group: +254741224547"
+      "📱 Join our WhatsApp group: +254741224547"
   ];
 
   const quickStats = [
