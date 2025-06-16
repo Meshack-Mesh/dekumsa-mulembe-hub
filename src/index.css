@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -100,4 +101,35 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* DeKUMSA specific styles */
+.dekumsa-gradient {
+  background: linear-gradient(135deg, #ef4444, #22c55e, #eab308);
+}
+
+.dekumsa-red {
+  color: #dc2626;
+}
+
+.dekumsa-green {
+  color: #16a34a;
+}
+
+.dekumsa-yellow {
+  color: #ca8a04;
 }
