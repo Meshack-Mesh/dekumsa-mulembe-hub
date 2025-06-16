@@ -18,14 +18,14 @@ const Leadership = () => {
       name: "Ivy Dina",
       position: "Vice Chairperson",
       phone: "0750847351",
-      image: "/lovable-uploads/36522acf-48f9-4c5e-9c41-3e03f4aa03e6.png",
+      image: null,
       message: "Supporting our chairperson and ensuring smooth operations. Always ready to step up when needed."
     },
     {
       name: "Austin Ouma",
       position: "Secretary",
       phone: "0743892264",
-      image: "/lovable-uploads/97c88e96-d2be-497f-8f2c-e2f62a0455a9.png",
+      image: null,
       message: "Keeping accurate records and ensuring transparency in all our proceedings. Your voice matters in every meeting."
     },
     {
@@ -39,7 +39,7 @@ const Leadership = () => {
       name: "Sceva Asaquila",
       position: "Organizing Secretary",
       phone: "0745256547",
-      image: "/lovable-uploads/162b0cea-279a-4c0b-b49c-18afce1250f5.png",
+      image: null,
       message: "Coordinating events and activities that bring us together. Making every DeKUMSA event memorable and meaningful."
     },
     {
