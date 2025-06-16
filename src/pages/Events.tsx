@@ -38,12 +38,12 @@ const Events = () => {
       description: "DeKUMSA members visited Huruma Children's Home with donations and spent time with the children.",
       images: [
         "/lovable-uploads/90b223e9-3f08-4b50-9513-22cfd0f7de78.png",
-        "/lovable-uploads/huruma1.JPG",
-         "/lovable-uploads/huruma2.JPG",
-          "/lovable-uploads/huruma3.JPG",
-           "/lovable-uploads/huruma4.JPG",
-            "/lovable-uploads/huruma5.JPG",
-            "/lovable-uploads/huruma6.JPG",
+        "/lovable-uploads/huruma1.jpg",
+         "/lovable-uploads/huruma2.jpg",
+          "/lovable-uploads/huruma3.jpg",
+           "/lovable-uploads/huruma4.jpg",
+            "/lovable-uploads/huruma5.jpg",
+            "/lovable-uploads/huruma6.jpg",
 
       ],
       participants: "25+ members"

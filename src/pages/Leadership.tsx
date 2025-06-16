@@ -50,7 +50,7 @@ const Leadership = () => {
       message: "Managing our finances with integrity and accountability. Every shilling is invested wisely for our members' benefit."
     },
     {
-      name: "Sceva Asaquila",
+      name: "Sceva Aquila",
       position: "Organizing Secretary",
       phone: "0745256547",
       image: "/lovable-uploads/Sceva.png",
