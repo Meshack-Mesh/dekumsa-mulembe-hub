@@ -6,17 +6,17 @@ import { Button } from '@/components/ui/button';
 
 const Home = () => {
   const announcements = [
-    "📢 Annual General Meeting scheduled for December 15th, 2024",
-    "🎉 Fun Day registration now open - Limited spots available!",
+    "📅 Weekly Meetings Every Friday Room 14 SOB from 5PM",
+    "🎉 Upcoming events: Charity and Mulembe Bash - dates to be communicated",
     "❤️ Welfare support applications are being reviewed",
-    "📚 Past papers collection drive in progress"
+    "📱 Join our WhatsApp group: +254741224547"
   ];
 
   const quickStats = [
     { icon: Users, label: "Active Members", value: "500+" },
     { icon: Calendar, label: "Events This Year", value: "12" },
     { icon: Heart, label: "Welfare Cases Helped", value: "45" },
-    { icon: BookOpen, label: "Study Resources", value: "200+" }
+    { icon: BookOpen, label: "Community Activities", value: "15+" }
   ];
 
   return (

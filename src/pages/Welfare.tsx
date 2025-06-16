@@ -148,19 +148,26 @@ const Welfare = () => {
               </CardContent>
             </Card>
 
-            {/* Anonymous Donations */}
+            {/* Welfare Donations */}
             <Card className="bg-green-50 border-green-200">
               <CardHeader>
-                <CardTitle className="text-green-700 text-2xl">Make a Donation</CardTitle>
+                <CardTitle className="text-green-700 text-2xl">Make a Welfare Donation</CardTitle>
                 <CardDescription>
-                  Support your fellow DeKUMSA members by making an anonymous donation to our welfare fund.
+                  Support your fellow DeKUMSA members by making a donation to our welfare fund.
                 </CardDescription>
               </CardHeader>
               <CardContent>
+                <div className="space-y-4 mb-4">
+                  <div className="bg-white p-4 rounded-lg border">
+                    <h4 className="font-semibold text-gray-800 mb-2">Welfare Treasurer: Faith Mukabane</h4>
+                    <p className="text-gray-600 mb-2">Send M-Pesa donations to:</p>
+                    <p className="text-xl font-bold text-green-600">0746902609</p>
+                  </div>
+                </div>
                 <div className="space-y-3">
                   <Button className="w-full bg-green-600 hover:bg-green-700">
                     <DollarSign className="w-4 h-4 mr-2" />
-                    Donate Funds (M-Pesa)
+                    Send M-Pesa Donation
                   </Button>
                   <Button variant="outline" className="w-full border-green-600 text-green-600 hover:bg-green-50">
                     <HandHeart className="w-4 h-4 mr-2" />
@@ -168,7 +175,7 @@ const Welfare = () => {
                   </Button>
                 </div>
                 <p className="text-sm text-gray-600 mt-4">
-                  All donations are anonymous and go directly to supporting members in need.
+                  All donations go directly to supporting members in need.
                 </p>
               </CardContent>
             </Card>
@@ -184,7 +191,7 @@ const Welfare = () => {
             For welfare-related inquiries, contact our Vice Chairperson Ivy Dina and the welfare committee.
           </p>
           <Button asChild size="lg" className="bg-yellow-500 text-black hover:bg-yellow-400">
-            <a href="mailto:welfare@dekumsa.ac.ke">
+            <a href="https://wa.me/254741224547">
               Contact Welfare Committee
             </a>
           </Button>

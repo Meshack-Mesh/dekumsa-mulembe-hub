@@ -8,42 +8,42 @@ const Leadership = () => {
     {
       name: "Joseph Okwemba",
       position: "Chairperson",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/39bd1f1f-ddf7-4ca3-93d8-efee46c591da.png",
       duties: "Overall leadership, strategic planning, and external representation",
       message: "Fellow DeKUMSA members and friends, it is my honour to lead a vibrant association committed to unity, culture, and excellence. We aim to uplift each other socially and academically. Let's continue working together to build an impactful legacy. Together We Can!"
     },
     {
       name: "Ivy Dina",
       position: "Vice Chairperson",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/162b0cea-279a-4c0b-b49c-18afce1250f5.png",
       duties: "Assists the chairperson and leads welfare committee",
       message: ""
     },
     {
       name: "Austin Ouma",
       position: "Secretary",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/03ad1bfc-f591-45f6-bbfd-8a15b711a0b5.png",
       duties: "Minutes, correspondence, and record keeping",
       message: ""
     },
     {
       name: "Edith Asachita",
       position: "Treasurer",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/5e4b3a83-07b5-458d-8ae6-26ade4ba6358.png",
       duties: "Financial management and budgeting",
       message: ""
     },
     {
       name: "Sceva Asaquila",
       position: "Organizing Secretary",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/0ee3fdab-d2c3-40e7-a58e-06724825751f.png",
       duties: "Event planning and coordination",
       message: ""
     },
     {
       name: "Emmanuel Juma",
       position: "Public Relations Officer",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/36522acf-48f9-4c5e-9c41-3e03f4aa03e6.png",
       duties: "Communications, marketing, and public relations",
       message: "As your Public Relations Officer, I'm here to amplify your voices, share your stories, and keep you connected to everything DeKUMSA. Let's stay informed, involved, and inspired."
     },
@@ -181,7 +181,7 @@ const Leadership = () => {
             Our executive team is always available to listen to your concerns and suggestions. Reach out to us!
           </p>
           <Button asChild size="lg" className="bg-yellow-500 text-black hover:bg-yellow-400">
-            <a href="mailto:dekumsa@students.dkut.ac.ke">
+            <a href="https://wa.me/254741224547">
               Contact Executive Team
             </a>
           </Button>

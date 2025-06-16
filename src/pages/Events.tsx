@@ -7,51 +7,52 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 const Events = () => {
   const upcomingEvents = [
     {
-      title: "Annual General Meeting",
-      date: "December 15, 2024",
-      time: "2:00 PM",
-      location: "Main Hall, DeKUT",
-      description: "Join us for our annual meeting to review the year's achievements and plan for 2025.",
-      type: "Meeting"
+      title: "Weekly Meetings",
+      date: "Every Friday",
+      time: "5:00 PM",
+      location: "Room 14 SOB, DeKUT",
+      description: "Join us for our regular weekly meetings to discuss association matters and plan upcoming activities.",
+      type: "Regular"
     },
     {
-      title: "Fun Day 2024",
-      date: "December 20, 2024",
-      time: "9:00 AM",
-      location: "University Grounds",
-      description: "A day of games, music, food, and celebration with fellow DeKUMSA members.",
-      type: "Social"
+      title: "Charity Activity",
+      date: "Date to be communicated",
+      time: "TBD",
+      location: "Venue TBD",
+      description: "Join us for our upcoming charity activity to give back to the community.",
+      type: "Community"
+    },
+    {
+      title: "Mulembe Bash",
+      date: "Date to be communicated",
+      time: "TBD",
+      location: "Venue TBD",
+      description: "Celebrate Luhya culture and heritage with music, dance, food, and fellowship.",
+      type: "Cultural"
     }
   ];
 
   const pastEvents = [
     {
-      title: "Charity Visit - Nyeri Children's Home",
+      title: "Charity Visit - Huruma Children's Home",
       date: "November 2024",
-      description: "DeKUMSA members visited local children's home with donations and spent time with the children.",
-      image: "/placeholder.svg",
+      description: "DeKUMSA members visited Huruma Children's Home with donations and spent time with the children.",
+      image: "/lovable-uploads/97c88e96-d2be-497f-8f2c-e2f62a0455a9.png",
       participants: "25+ members"
     },
     {
-      title: "Hiking Adventure - Mt. Kenya",
+      title: "Hiking Adventure - Mau Caves, Nyeri",
       date: "October 2024", 
-      description: "Adventurous hiking trip that brought members together in nature's beauty.",
-      image: "/placeholder.svg",
+      description: "Adventurous hiking trip to Mau Caves in Nyeri that brought members together in nature's beauty.",
+      image: "/lovable-uploads/334da0a3-cdbf-460d-b263-44084980ea78.png",
       participants: "30+ members"
     },
     {
-      title: "Beach Excursion - Mombasa",
+      title: "Visit to Karatina University",
       date: "September 2024",
-      description: "Relaxing beach trip that strengthened bonds among DeKUMSA members.",
-      image: "/placeholder.svg",
+      description: "Educational visit to Karatina University that strengthened inter-university bonds.",
+      image: "/lovable-uploads/772c43f0-bef7-4a46-bc0d-df477741f96d.png",
       participants: "40+ members"
-    },
-    {
-      title: "Welcome Party - New Members",
-      date: "August 2024",
-      description: "Orientation and welcome celebration for new DeKUMSA members.",
-      image: "/placeholder.svg",
-      participants: "60+ members"
     }
   ];
 
@@ -80,7 +81,7 @@ const Events = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Upcoming Events</h2>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {upcomingEvents.map((event, index) => (
               <Card key={index} className="border-l-4 border-red-500 hover:shadow-lg transition-shadow">
                 <CardHeader>
@@ -122,7 +123,7 @@ const Events = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Past Events Highlights</h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {pastEvents.map((event, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="aspect-video bg-gray-200 relative">
@@ -160,14 +161,14 @@ const Events = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-yellow-500 text-black hover:bg-yellow-400">
-              <a href="/contact">
+              <a href="https://wa.me/254741224547">
                 <Camera className="w-5 h-5 mr-2" />
                 Join Our WhatsApp Group
               </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
-              <a href="/gallery">
-                View Event Gallery
+              <a href="https://youtube.com/@DeKUMSA">
+                Visit Our YouTube Channel
               </a>
             </Button>
           </div>

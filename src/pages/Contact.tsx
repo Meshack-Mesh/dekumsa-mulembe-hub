@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Mail, Phone, MapPin, MessageCircle, Instagram, Facebook, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle, Instagram, Facebook, Send, Youtube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -39,10 +39,10 @@ const Contact = () => {
               <CardContent>
                 <p className="text-gray-700 mb-4">Send us an email for any inquiries</p>
                 <a 
-                  href="mailto:dekumsa@students.dkut.ac.ke" 
+                  href="mailto:dekumsafamily@gmail.com" 
                   className="text-red-600 hover:text-red-800 font-semibold"
                 >
-                  dekumsa@students.dkut.ac.ke
+                  dekumsafamily@gmail.com
                 </a>
               </CardContent>
             </Card>
@@ -55,12 +55,12 @@ const Contact = () => {
               <CardContent>
                 <p className="text-gray-700 mb-4">Join our WhatsApp community</p>
                 <a 
-                  href="https://wa.me/254712345678" 
+                  href="https://wa.me/254741224547" 
                   className="text-green-600 hover:text-green-800 font-semibold"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  +254 712 345 678
+                  +254 741 224 547
                 </a>
               </CardContent>
             </Card>
@@ -147,7 +147,6 @@ const Contact = () => {
                       <option value="membership">Membership Inquiry</option>
                       <option value="welfare">Welfare Support</option>
                       <option value="events">Events & Activities</option>
-                      <option value="academics">Academic Resources</option>
                       <option value="leadership">Leadership Contact</option>
                       <option value="general">General Inquiry</option>
                     </select>
@@ -182,7 +181,7 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Follow Us</h2>
           
-          <div className="flex justify-center space-x-8">
+          <div className="flex justify-center flex-wrap gap-8">
             <a 
               href="https://instagram.com/dekumsa_dkut" 
               target="_blank" 
@@ -202,6 +201,16 @@ const Contact = () => {
               <Facebook className="w-12 h-12 text-blue-500 mb-2" />
               <span className="font-semibold text-blue-700">DeKUMSA Official</span>
             </a>
+
+            <a 
+              href="https://youtube.com/@DeKUMSA" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex flex-col items-center p-6 bg-red-50 rounded-xl hover:bg-red-100 transition-colors"
+            >
+              <Youtube className="w-12 h-12 text-red-500 mb-2" />
+              <span className="font-semibold text-red-700">DeKUMSA</span>
+            </a>
           </div>
         </div>
       </section>
@@ -215,13 +224,13 @@ const Contact = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-yellow-500 text-black hover:bg-yellow-400">
-              <a href="tel:+254712345678">
+              <a href="tel:+254741224547">
                 <Phone className="w-5 h-5 mr-2" />
                 Call Emergency Line
               </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
-              <a href="https://wa.me/254712345678" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/254741224547" target="_blank" rel="noopener noreferrer">
                 WhatsApp Leadership
               </a>
             </Button>
