@@ -27,7 +27,7 @@ const Home = () => {
           <div className="mb-8">
             <div className="w-24 h-24 mx-auto mb-4">
               <img
-                src="/dekumsa logo.jpg"
+                src="/lovable-uploads/dekumsa logo.jpg"
                 alt="DeKUMSA Logo"
                 className="w-full h-full object-contain rounded-full shadow-lg bg-white/20 p-2 backdrop-blur-sm"
               />

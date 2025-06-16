@@ -7,7 +7,7 @@ const Events = () => {
   const upcomingEvents = [
     {
       title: "Weekly Meetings",
-      date: "Every Friday",
+      date: "20-06-2025",
       time: "5:00 PM",
       location: "Room 14 SOB, DeKUT",
       description: "Join us for our regular weekly meetings to discuss association matters and plan upcoming activities.",
@@ -38,30 +38,49 @@ const Events = () => {
       description: "DeKUMSA members visited Huruma Children's Home with donations and spent time with the children.",
       images: [
         "/lovable-uploads/90b223e9-3f08-4b50-9513-22cfd0f7de78.png",
-        "/lovable-uploads/d359260a-cc06-47e8-9519-921b695fce9d.png",
-        "/lovable-uploads/c6d38eb8-af24-4c65-9e7b-328177cc9816.png"
+        "/lovable-uploads/huruma1.jpg",
+         "/lovable-uploads/huruma2.jpg",
+          "/lovable-uploads/huruma3.jpg",
+           "/lovable-uploads/huruma4.jpg",
+            "/lovable-uploads/huruma5.jpg",
+             "/lovable-uploads/huruma6.jpg",
+
       ],
       participants: "25+ members"
     },
     {
       title: "Hiking Adventure - Mau Caves, Nyeri",
-      date: "October 2024",
+      date: "June 2025",
       description: "Adventurous hiking trip to Mau Caves in Nyeri that brought members together in nature's beauty.",
       images: [
-        "/lovable-uploads/9d8f531e-66db-4da0-a27e-1a5811f78113.png",
         "/lovable-uploads/419836e1-c498-4055-9d14-e6370004edeb.png",
-        "/lovable-uploads/7498a6ea-e3d2-4961-885f-7135a4f81e77.png"
+        "/lovable-uploads/mau.jpg",
+        "/lovable-uploads/mau1.jpg",
+        "/lovable-uploads/mau2.jpg",
+        "/lovable-uploads/mau3.jpg",
+        "/lovable-uploads/mau4.jpg",
+        "/lovable-uploads/mau5.jpg",
+        "/lovable-uploads/mau6.jpg",
+        "/lovable-uploads/mau7.jpg",
+        "/lovable-uploads/mau8.jpg",
+        "/lovable-uploads/mau9.jpg",
+
       ],
-      participants: "30+ members"
+      participants: "51 members"
     },
     {
       title: "Visit to Karatina University",
-      date: "September 2024",
-      description: "Educational visit to Karatina University that strengthened inter-university bonds.",
+      date: "March 2025",
+      description: "Fun Day visit to Karatina University that strengthened inter-university bonds.",
       images: [
-        "/lovable-uploads/6762b8e8-0966-47e7-8a81-2ef19b7b9dfb.png",
         "/lovable-uploads/1e4138df-3fe7-4a60-8049-7bc017714c27.png",
-        "/lovable-uploads/85d4e858-3fee-401f-a945-61b90c9b42bd.png"
+        "/lovable-uploads/kara1.jpg",
+         "/lovable-uploads/kara2.jpg",
+          "/lovable-uploads/kara3.jpg",
+           "/lovable-uploads/kara4.jpg",
+            "/lovable-uploads/kara5.jpg",
+
+
       ],
       participants: "40+ members"
     }

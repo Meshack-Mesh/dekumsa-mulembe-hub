@@ -18,7 +18,7 @@ const Leadership = () => {
       name: "Joseph Okwemba",
       position: "Chairperson",
       phone: "0796190382",
-      image: "/lovable-uploads/85d4e858-3fee-401f-a945-61b90c9b42bd.png",
+      image: "/lovable-upload/seka.jpg",
       message: "Leading with vision and dedication to serve our community. Together we build a stronger DeKUMSA for all members."
     },
     {

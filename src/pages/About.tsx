@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Target, Shield, Heart, Users, Lightbulb, TrendingUp } from 'lucide-react';
 
@@ -68,7 +67,7 @@ const About = () => {
                 To protect the DeKUMSA Members through professional policing and through leadership of community partnerships, while fostering the educational mission in the university.
               </p>
             </div>
-            
+
             <div className="bg-green-50 p-8 rounded-xl border-l-4 border-green-500">
               <div className="flex items-center mb-6">
                 <Shield className="w-10 h-10 text-green-600 mr-4" />
@@ -99,7 +98,7 @@ const About = () => {
               Six core objectives guide everything we do at DeKUMSA
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {objectives.map((objective, index) => {
               const Icon = objective.icon;
@@ -125,19 +124,30 @@ const About = () => {
                 Building bridges, creating opportunities, and fostering excellence
               </p>
             </div>
-            
+
             <div className="bg-white p-8 rounded-xl shadow-lg">
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
                 The Dedan Kimathi University Mulembe Students Association (DeKUMSA) was established to create a home away from home for Luhya students at Dedan Kimathi University of Technology. Our association serves as a beacon of unity, bringing together students from various Luhya communities under one umbrella.
               </p>
-              
+
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
                 Since our inception, we have been committed to preserving and promoting our rich cultural heritage while embracing modern educational values. We believe that by staying connected to our roots, we can better navigate the challenges of university life and emerge as well-rounded individuals ready to contribute to society.
               </p>
-              
+
               <p className="text-gray-700 text-lg leading-relaxed">
                 Today, DeKUMSA stands as one of the most active and impactful student associations at DeKUT, with a growing membership base and an impressive track record of community service, academic support, and cultural preservation. Our motto, "Together We Can," reflects our unwavering belief in the power of unity and collective action.
               </p>
+            </div>
+
+            {/* Constitution Download Button */}
+            <div className="text-center mt-8">
+              <a
+                href="/DeKUMSA CONSTITUTION 2024.pdf"
+                download
+                className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg shadow transition"
+              >
+                📄 Download DeKUMSA Constitution 2024 (PDF)
+              </a>
             </div>
           </div>
         </div>
