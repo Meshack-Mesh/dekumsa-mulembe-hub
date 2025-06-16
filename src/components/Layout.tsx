@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Heart, Users, Calendar, BookOpen, Vote, Mail, Camera, CreditCard, Shield } from 'lucide-react';
+import { Menu, X, Heart, Users, Calendar, Vote, Mail, CreditCard } from 'lucide-react';
 import { useState } from 'react';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -15,9 +15,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     { path: '/membership', label: 'Membership', icon: Users },
     { path: '/welfare', label: 'Welfare', icon: Heart },
     { path: '/events', label: 'Events', icon: Calendar },
-    { path: '/academics', label: 'Academics', icon: BookOpen },
     { path: '/elections', label: 'Elections', icon: Vote },
-    { path: '/gallery', label: 'Gallery', icon: Camera },
     { path: '/transparency', label: 'Finance', icon: CreditCard },
     { path: '/contact', label: 'Contact', icon: Mail },
   ];
@@ -136,9 +134,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-yellow-400">Contact</h4>
               <div className="space-y-2 text-sm text-gray-300">
-                <p>📧 dekumsa@students.dkut.ac.ke</p>
+                <p>📧 dekumsafamily@gmail.com</p>
                 <p>📍 Dedan Kimathi University, Nyeri</p>
-                <p>📱 WhatsApp: +254 7XX XXX XXX</p>
+                <p>📱 WhatsApp: +254 741 224 547</p>
               </div>
             </div>
           </div>

@@ -3,6 +3,7 @@ import React from 'react';
 import { Calendar, MapPin, Users, Camera, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const Events = () => {
   const upcomingEvents = [
@@ -37,21 +38,33 @@ const Events = () => {
       title: "Charity Visit - Huruma Children's Home",
       date: "November 2024",
       description: "DeKUMSA members visited Huruma Children's Home with donations and spent time with the children.",
-      image: "/lovable-uploads/97c88e96-d2be-497f-8f2c-e2f62a0455a9.png",
+      images: [
+        "/lovable-uploads/ca3b50d9-0e17-4bd1-9a46-68976f6c72ca.png",
+        "/lovable-uploads/afe7df02-4f5b-4b34-8b73-a3c8b93cf58b.png",
+        "/lovable-uploads/33c2deb0-b14c-4901-bd79-45b3c7b15031.png"
+      ],
       participants: "25+ members"
     },
     {
       title: "Hiking Adventure - Mau Caves, Nyeri",
       date: "October 2024", 
       description: "Adventurous hiking trip to Mau Caves in Nyeri that brought members together in nature's beauty.",
-      image: "/lovable-uploads/334da0a3-cdbf-460d-b263-44084980ea78.png",
+      images: [
+        "/lovable-uploads/9bcd49d8-c17d-4503-b1c4-1cda9d74a0d6.png",
+        "/lovable-uploads/ab87b3f3-7dde-4e9c-af37-2f9a0a4cd66b.png",
+        "/lovable-uploads/fd66e8be-e1df-4e36-a3f5-7dd00ed46e4f.png"
+      ],
       participants: "30+ members"
     },
     {
       title: "Visit to Karatina University",
       date: "September 2024",
       description: "Educational visit to Karatina University that strengthened inter-university bonds.",
-      image: "/lovable-uploads/772c43f0-bef7-4a46-bc0d-df477741f96d.png",
+      images: [
+        "/lovable-uploads/21f0b00e-0ee1-47c3-b36e-e8b5a24b1f8c.png",
+        "/lovable-uploads/7e4b11a2-9e8d-4e82-8d81-15b4f3b91075.png",
+        "/lovable-uploads/a2e2fd8a-99e0-4b49-b1aa-fc1a2bbef41c.png"
+      ],
       participants: "40+ members"
     }
   ];
@@ -123,15 +136,25 @@ const Events = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Past Events Highlights</h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-12 max-w-4xl mx-auto">
             {pastEvents.map((event, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="aspect-video bg-gray-200 relative">
-                  <img 
-                    src={event.image} 
-                    alt={event.title}
-                    className="w-full h-full object-cover"
-                  />
+                  <Carousel className="w-full h-full">
+                    <CarouselContent>
+                      {event.images.map((image, imgIndex) => (
+                        <CarouselItem key={imgIndex}>
+                          <img 
+                            src={image} 
+                            alt={`${event.title} - Image ${imgIndex + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2" />
+                    <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2" />
+                  </Carousel>
                   <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     {event.participants}
                   </div>

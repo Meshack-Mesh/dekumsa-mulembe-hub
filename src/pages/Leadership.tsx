@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Mail, MessageCircle, Star, Users } from 'lucide-react';
+import { MessageCircle, Star, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Leadership = () => {
@@ -8,58 +8,66 @@ const Leadership = () => {
     {
       name: "Joseph Okwemba",
       position: "Chairperson",
-      image: "/lovable-uploads/39bd1f1f-ddf7-4ca3-93d8-efee46c591da.png",
+      image: "/lovable-uploads/f7a8e95c-b66b-45ce-8ee8-b0d2b924b522.png",
       duties: "Overall leadership, strategic planning, and external representation",
-      message: "Fellow DeKUMSA members and friends, it is my honour to lead a vibrant association committed to unity, culture, and excellence. We aim to uplift each other socially and academically. Let's continue working together to build an impactful legacy. Together We Can!"
+      whatsapp: "0796190382",
+      message: "Leading with vision and commitment to serve every member of DeKUMSA with dedication and transparency."
     },
     {
       name: "Ivy Dina",
       position: "Vice Chairperson",
       image: "/lovable-uploads/162b0cea-279a-4c0b-b49c-18afce1250f5.png",
       duties: "Assists the chairperson and leads welfare committee",
-      message: ""
+      whatsapp: "0750847351",
+      message: "Supporting our chairperson while ensuring every member's welfare is prioritized and protected."
     },
     {
       name: "Austin Ouma",
       position: "Secretary",
       image: "/lovable-uploads/03ad1bfc-f591-45f6-bbfd-8a15b711a0b5.png",
       duties: "Minutes, correspondence, and record keeping",
-      message: ""
+      whatsapp: "0743892264",
+      message: "Maintaining accurate records and ensuring transparent communication across all DeKUMSA activities."
     },
     {
       name: "Edith Asachita",
       position: "Treasurer",
       image: "/lovable-uploads/5e4b3a83-07b5-458d-8ae6-26ade4ba6358.png",
       duties: "Financial management and budgeting",
-      message: ""
+      whatsapp: "0703299411",
+      message: "Safeguarding our finances with integrity and ensuring every shilling is accounted for responsibly."
     },
     {
       name: "Sceva Asaquila",
       position: "Organizing Secretary",
       image: "/lovable-uploads/0ee3fdab-d2c3-40e7-a58e-06724825751f.png",
       duties: "Event planning and coordination",
-      message: ""
+      whatsapp: "0745256547",
+      message: "Creating memorable experiences through well-organized events that bring our community together."
     },
     {
       name: "Emmanuel Juma",
       position: "Public Relations Officer",
       image: "/lovable-uploads/36522acf-48f9-4c5e-9c41-3e03f4aa03e6.png",
       duties: "Communications, marketing, and public relations",
-      message: "As your Public Relations Officer, I'm here to amplify your voices, share your stories, and keep you connected to everything DeKUMSA. Let's stay informed, involved, and inspired."
+      whatsapp: "0741224547",
+      message: "Amplifying DeKUMSA's voice and keeping our community connected through effective communication."
     },
     {
       name: "Emmanuel Wasike",
       position: "Captain",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
       duties: "Sports coordination and team leadership",
-      message: ""
+      whatsapp: "0757239192",
+      message: "Promoting fitness, teamwork, and sportsmanship while building unity through recreational activities."
     },
     {
       name: "Beatrice Shanyisa",
       position: "Patron",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
       duties: "Advisory role and mentorship",
-      message: ""
+      whatsapp: "",
+      message: "Providing guidance and wisdom to ensure DeKUMSA's continued growth and success."
     }
   ];
 
@@ -115,16 +123,16 @@ const Leadership = () => {
                     </div>
                   )}
                   
-                  <div className="flex gap-2">
-                    <Button size="sm" variant="outline" className="flex-1">
-                      <Mail className="w-4 h-4 mr-2" />
-                      Email
-                    </Button>
-                    <Button size="sm" variant="outline" className="flex-1">
-                      <MessageCircle className="w-4 h-4 mr-2" />
-                      Message
-                    </Button>
-                  </div>
+                  {executive.whatsapp && (
+                    <div className="flex justify-center">
+                      <Button asChild size="sm" className="bg-green-500 hover:bg-green-600 text-white">
+                        <a href={`https://wa.me/254${executive.whatsapp.replace(/^0/, '')}`}>
+                          <MessageCircle className="w-4 h-4 mr-2" />
+                          WhatsApp: {executive.whatsapp}
+                        </a>
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

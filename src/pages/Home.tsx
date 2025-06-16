@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, Users, Calendar, BookOpen, ChevronRight, Star, Shield, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 
 const Home = () => {
   const announcements = [
@@ -19,17 +20,56 @@ const Home = () => {
     { icon: BookOpen, label: "Community Activities", value: "15+" }
   ];
 
+  const heroImages = [
+    "/lovable-uploads/ca3b50d9-0e17-4bd1-9a46-68976f6c72ca.png",
+    "/lovable-uploads/afe7df02-4f5b-4b34-8b73-a3c8b93cf58b.png",
+    "/lovable-uploads/33c2deb0-b14c-4901-bd79-45b3c7b15031.png",
+    "/lovable-uploads/9bcd49d8-c17d-4503-b1c4-1cda9d74a0d6.png",
+    "/lovable-uploads/ab87b3f3-7dde-4e9c-af37-2f9a0a4cd66b.png",
+    "/lovable-uploads/fd66e8be-e1df-4e36-a3f5-7dd00ed46e4f.png",
+    "/lovable-uploads/21f0b00e-0ee1-47c3-b36e-e8b5a24b1f8c.png",
+    "/lovable-uploads/7e4b11a2-9e8d-4e82-8d81-15b4f3b91075.png",
+    "/lovable-uploads/a2e2fd8a-99e0-4b49-b1aa-fc1a2bbef41c.png"
+  ];
+
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-500 via-green-500 to-yellow-500 text-white">
-        <div className="container mx-auto px-4 py-16">
-          <div className="text-center">
+      {/* Hero Section with Background Carousel */}
+      <section className="relative overflow-hidden">
+        {/* Background Carousel */}
+        <div className="absolute inset-0 z-0">
+          <Carousel 
+            className="w-full h-full"
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+          >
+            <CarouselContent className="h-full">
+              {heroImages.map((image, index) => (
+                <CarouselItem key={index} className="h-full">
+                  <div className="relative h-full">
+                    <img 
+                      src={image} 
+                      alt={`DeKUMSA Activity ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-red-500/80 via-green-500/80 to-yellow-500/80"></div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 container mx-auto px-4 py-16 min-h-[70vh] flex items-center">
+          <div className="text-center text-white w-full">
             <div className="mb-8">
               <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
                 <Heart className="w-12 h-12 text-white" />
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-shadow-lg">
                 DeKUMSA
               </h1>
               <p className="text-xl md:text-2xl font-semibold mb-2">
@@ -47,12 +87,12 @@ const Home = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-red-600 hover:bg-gray-100">
+              <Button asChild size="lg" className="bg-white text-red-600 hover:bg-gray-100 shadow-lg">
                 <Link to="/membership">
                   Join DeKUMSA <ChevronRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-red-600">
+              <Button asChild variant="outline" size="lg" className="border-white bg-white/10 text-white hover:bg-white hover:text-red-600 backdrop-blur-sm shadow-lg">
                 <Link to="/about">
                   Learn More
                 </Link>
