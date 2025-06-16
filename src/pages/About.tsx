@@ -142,11 +142,11 @@ const About = () => {
             {/* Constitution Download Button */}
             <div className="text-center mt-8">
               <a
-                href="/DeKUMSA CONSTITUTION 2024.pdf"
+                href="/lovable-uploads//DeKUMSA CONSTITUTION 2024.pdf"
                 download
                 className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg shadow transition"
               >
-                📄 Download DeKUMSA Constitution 2024 (PDF)
+                Download DeKUMSA Constitution
               </a>
             </div>
           </div>

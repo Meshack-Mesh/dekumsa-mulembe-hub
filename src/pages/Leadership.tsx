@@ -18,7 +18,7 @@ const Leadership = () => {
       name: "Joseph Okwemba",
       position: "Chairperson",
       phone: "0796190382",
-      image: "/lovable-upload/seka.jpg",
+      image: "/lovable-uploads/seka.jpg",
       message: "Leading with vision and dedication to serve our community. Together we build a stronger DeKUMSA for all members."
     },
     {
@@ -74,12 +74,12 @@ const Leadership = () => {
       name: "Emmanuel Wasike",
       position: "Captain",
       phone: "0757239192",
-      image: null,
+      image: "/lovable-uploads/wasike.jpg",
       message: "Leading by example in sports and physical activities. Promoting health, fitness, and team spirit among members."
     },
  {
       name: "Agani Chelsea",
-      position: "Gender DeKUTSO Representative",
+      position: "Gender Mainstreaming DeKUTSO Representative",
       phone: "0742 298348",
       image: null,
       message: "Promoting equality and inclusion across the entire school. Advocating for student welfare, addressing gender-based concerns, and creating a safe space for open dialogue."
