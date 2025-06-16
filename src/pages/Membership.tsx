@@ -224,7 +224,7 @@ const Membership = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="reason">Why do you want to join DeKUMSA? (Optional)</Label>
+                  <Label htmlFor="reason">Why do you want to join DeKUMSA?</Label>
                   <Textarea
                     id="reason"
                     value={formData.reason}
@@ -253,8 +253,8 @@ const Membership = () => {
           <div className="bg-gray-800 p-6 rounded-xl max-w-md mx-auto mb-8">
             <h3 className="text-xl font-semibold mb-4 text-yellow-400">Payment Details</h3>
             <div className="space-y-2 text-left">
-              <p><strong>M-Pesa Number:</strong> 0746902609</p>
-              <p><strong>Name:</strong> Faith Mukabane</p>
+              <p><strong>M-Pesa Number:</strong> 0727560864</p>
+              <p><strong>Name:</strong> Edith Asachita</p>
               <p><strong>Amount:</strong> KES 100 (Registration)</p>
               <p className="text-sm text-gray-400 mt-4">
                 Send payment confirmation to our WhatsApp for verification.
@@ -262,7 +262,7 @@ const Membership = () => {
             </div>
           </div>
           <Button asChild size="lg" className="bg-yellow-500 text-black hover:bg-yellow-400">
-            <a href="https://wa.me/254741224547">
+            <a href="https://wa.me/254703299411">
               Confirm Payment via WhatsApp
             </a>
           </Button>
