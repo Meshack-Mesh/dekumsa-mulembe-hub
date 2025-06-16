@@ -139,16 +139,45 @@ const About = () => {
               </p>
             </div>
 
-            {/* Constitution Download Button */}
-            <div className="text-center mt-8">
-              <a
-                href="/lovable-uploads//DeKUMSA CONSTITUTION 2024.pdf"
-                download
-                className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg shadow transition"
-              >
-                Download DeKUMSA Constitution
-              </a>
-            </div>
+           {/* Constitution Section */}
+           <section className="py-16 bg-gray-100">
+             <div className="container mx-auto px-4">
+               <div className="text-center mb-8">
+                 <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                   DeKUMSA Constitution (2024)
+                 </h2>
+                 <p className="text-gray-600 text-lg">
+                   View or download the official DeKUMSA Constitution.
+                 </p>
+               </div>
+
+               {/* PDF Viewer (Google Drive Embed) */}
+               <div className="w-full h-[600px] border rounded-lg shadow-lg overflow-hidden mb-6">
+                 <iframe
+                   src="https://drive.google.com/file/d/1y4PYl7E_XfMLMfEZDToSqMsZoXfRT4dZ/preview"
+                   title="DeKUMSA Constitution PDF"
+                   width="100%"
+                   height="100%"
+                   allow="autoplay"
+                   className="border-0"
+                 />
+               </div>
+
+               {/* External Download Button */}
+               <div className="text-center">
+                 <a
+                   href="https://drive.google.com/file/d/1y4PYl7E_XfMLMfEZDToSqMsZoXfRT4dZ/view?usp=drive_link"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg shadow transition"
+                 >
+                   📥 Download DeKUMSA Constitution (PDF)
+                 </a>
+               </div>
+             </div>
+           </section>
+
+
           </div>
         </div>
       </section>
