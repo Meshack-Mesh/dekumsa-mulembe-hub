@@ -1,9 +1,7 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Calendar, MapPin, Users, Camera, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const Events = () => {
   const upcomingEvents = [
@@ -47,7 +45,7 @@ const Events = () => {
     },
     {
       title: "Hiking Adventure - Mau Caves, Nyeri",
-      date: "October 2024", 
+      date: "October 2024",
       description: "Adventurous hiking trip to Mau Caves in Nyeri that brought members together in nature's beauty.",
       images: [
         "/lovable-uploads/9d8f531e-66db-4da0-a27e-1a5811f78113.png",
@@ -69,22 +67,56 @@ const Events = () => {
     }
   ];
 
+  // Autoplay Carousel Component (Defined Inside the File)
+  const AutoplayCarousel = ({ event }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+      const total = event.images.length;
+      const interval = setInterval(() => {
+        setCurrentIndex(prev => (prev + 1) % total);
+      }, 3000); // change image every 3 seconds
+      return () => clearInterval(interval);
+    }, [event.images.length]);
+
+    return (
+      <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+        <div className="aspect-video bg-gray-200 relative">
+          <img
+            src={event.images[currentIndex]}
+            alt={`${event.title} - Image ${currentIndex + 1}`}
+            className="w-full h-full object-cover transition-opacity duration-700"
+          />
+          <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+            {event.participants}
+          </div>
+        </div>
+        <CardHeader>
+          <CardTitle className="text-green-700">{event.title}</CardTitle>
+          <CardDescription className="flex items-center text-gray-600">
+            <Calendar className="w-4 h-4 mr-1" />
+            {event.date}
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-gray-700">{event.description}</p>
+        </CardContent>
+      </Card>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Header Section */}
+      {/* Header */}
       <section className="bg-gradient-to-r from-red-500 to-green-500 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <Calendar className="w-16 h-16 mx-auto mb-4" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Events</h1>
-            <p className="text-xl md:text-2xl opacity-90">
-              Building Community Through Shared Experiences
-            </p>
-            <div className="mt-6 flex items-center justify-center space-x-2">
-              <Users className="w-6 h-6 text-yellow-300" />
-              <p className="text-xl font-semibold text-yellow-300">Together We Can</p>
-              <Users className="w-6 h-6 text-yellow-300" />
-            </div>
+        <div className="container mx-auto px-4 text-center">
+          <Calendar className="w-16 h-16 mx-auto mb-4" />
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Events</h1>
+          <p className="text-xl md:text-2xl opacity-90">Building Community Through Shared Experiences</p>
+          <div className="mt-6 flex items-center justify-center space-x-2">
+            <Users className="w-6 h-6 text-yellow-300" />
+            <p className="text-xl font-semibold text-yellow-300">Together We Can</p>
+            <Users className="w-6 h-6 text-yellow-300" />
           </div>
         </div>
       </section>
@@ -93,7 +125,6 @@ const Events = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Upcoming Events</h2>
-          
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {upcomingEvents.map((event, index) => (
               <Card key={index} className="border-l-4 border-red-500 hover:shadow-lg transition-shadow">
@@ -133,51 +164,19 @@ const Events = () => {
         </div>
       </section>
 
-      {/* Past Events */}
+      {/* Past Events with Carousel */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Past Events Highlights</h2>
-          
-          <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-12 max-w-4xl mx-auto">
+          <div className="grid gap-12 max-w-4xl mx-auto">
             {pastEvents.map((event, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="aspect-video bg-gray-200 relative">
-                  <Carousel className="w-full h-full">
-                    <CarouselContent>
-                      {event.images.map((image, imgIndex) => (
-                        <CarouselItem key={imgIndex}>
-                          <img 
-                            src={image} 
-                            alt={`${event.title} - Image ${imgIndex + 1}`}
-                            className="w-full h-full object-cover"
-                          />
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2" />
-                    <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2" />
-                  </Carousel>
-                  <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    {event.participants}
-                  </div>
-                </div>
-                <CardHeader>
-                  <CardTitle className="text-green-700">{event.title}</CardTitle>
-                  <CardDescription className="flex items-center text-gray-600">
-                    <Calendar className="w-4 h-4 mr-1" />
-                    {event.date}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">{event.description}</p>
-                </CardContent>
-              </Card>
+              <AutoplayCarousel key={index} event={event} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Event Registration CTA */}
+      {/* CTA */}
       <section className="py-16 bg-gray-900 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">Don't Miss Out!</h2>

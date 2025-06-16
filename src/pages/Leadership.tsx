@@ -25,7 +25,7 @@ const Leadership = () => {
       name: "Ivy Dina",
       position: "Vice Chairperson",
       phone: "0750 847351",
-      image: "/lovable-uploads/WhatsApp Image 2024-10-12 at 15.32.22_d4e5538b.png",
+      image: "/lovable-uploads/Ivy.jpg",
       message: "Supporting our chairperson and ensuring smooth operations. Always ready to step up when needed."
     },
     {

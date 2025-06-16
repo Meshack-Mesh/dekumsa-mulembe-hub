@@ -13,53 +13,62 @@ const Home = () => {
 
   const quickStats = [
     { icon: Users, label: "Active Members", value: "500+" },
-    { icon: Calendar, label: "Events This Year", value: "12" },
-    { icon: Heart, label: "Welfare Cases Helped", value: "45" },
+    { icon: Calendar, label: "Events This Year", value: "10" },
+    { icon: Heart, label: "Welfare Cases Helped", value: "15" },
     { icon: BookOpen, label: "Community Activities", value: "15+" }
   ];
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-500 via-green-500 to-yellow-500 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <div className="mb-8">
-              <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
-                <Heart className="w-12 h-12 text-white" />
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-shadow-lg">
-                DeKUMSA
-              </h1>
-              <p className="text-xl md:text-2xl font-semibold mb-2">
-                Dedan Kimathi University Mulembe Students Association
-              </p>
-              <div className="flex items-center justify-center space-x-2 mb-6">
-                <Star className="w-6 h-6 text-yellow-300" />
-                <p className="text-2xl font-bold text-yellow-300">Together We Can</p>
-                <Star className="w-6 h-6 text-yellow-300" />
-              </div>
+    {/* Hero Section */}
+    <section className="bg-gradient-to-br from-red-500 via-green-500 to-yellow-500 text-white py-20">
+      <div className="container mx-auto px-4">
+        <div className="text-center">
+          <div className="mb-8">
+            <div className="w-24 h-24 mx-auto mb-4">
+              <img
+                src="/dekumsa logo.jpg"
+                alt="DeKUMSA Logo"
+                className="w-full h-full object-contain rounded-full shadow-lg bg-white/20 p-2 backdrop-blur-sm"
+              />
             </div>
-            
-            <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90">
-              Building unity, culture, and excellence among Luhya students at Dedan Kimathi University of Technology
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-shadow-lg">
+              DeKUMSA
+            </h1>
+            <p className="text-xl md:text-2xl font-semibold mb-2">
+              Dedan Kimathi University Mulembe Students Association
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-red-600 hover:bg-gray-100 shadow-lg">
-                <Link to="/membership">
-                  Join DeKUMSA <ChevronRight className="w-5 h-5 ml-2" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="border-white bg-white/10 text-white hover:bg-white hover:text-red-600 backdrop-blur-sm shadow-lg">
-                <Link to="/about">
-                  Learn More
-                </Link>
-              </Button>
+            <div className="flex items-center justify-center space-x-2 mb-6">
+              <Star className="w-6 h-6 text-yellow-300" />
+              <p className="text-2xl font-bold text-yellow-300">Together We Can</p>
+              <Star className="w-6 h-6 text-yellow-300" />
             </div>
           </div>
+
+          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90">
+            Building unity, culture, and excellence among Luhya students at Dedan Kimathi University of Technology
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg" className="bg-white text-red-600 hover:bg-gray-100 shadow-lg">
+              <Link to="/membership">
+                Join DeKUMSA <ChevronRight className="w-5 h-5 ml-2" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-white bg-white/10 text-white hover:bg-white hover:text-red-600 backdrop-blur-sm shadow-lg"
+            >
+              <Link to="/about">
+                Learn More
+              </Link>
+            </Button>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Scrolling Announcements */}
       <section className="bg-yellow-400 py-3 overflow-hidden">
