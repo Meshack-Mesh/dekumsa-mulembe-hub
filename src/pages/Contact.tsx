@@ -68,16 +68,7 @@ const Contact = () => {
       description: "Join our community chat"
     },
     {
-      name: "Instagram",
-      url: "https://instagram.com/@dekumsa_dkut",
-      description: "@dekumsa_dkut"
-    },
-    {
-      name: "Facebook",
-      url: "https://facebook.com/dekumsa",
-      description: "facebook.com/dekumsa"
-    },
-    {
+         {
       name: "YouTube",
       url: "https://youtube.com/@DeKUMSA",
       description: "DeKUMSA Channel"
@@ -93,7 +84,7 @@ const Contact = () => {
             <Mail className="w-16 h-16 mx-auto mb-4" />
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
             <p className="text-xl md:text-2xl opacity-90">
-              We're Here to Help and Listen
+              We're Here to Help and Listten
             </p>
             <div className="mt-6 flex items-center justify-center space-x-2">
               <MessageCircle className="w-6 h-6 text-yellow-300" />
