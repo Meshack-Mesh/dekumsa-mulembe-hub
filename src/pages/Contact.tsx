@@ -151,6 +151,7 @@ const Contact = () => {
                         required
                       />
                     </div>
+
                     <div className="space-y-2">
                       <Label htmlFor="email">Email *</Label>
                       <Input
