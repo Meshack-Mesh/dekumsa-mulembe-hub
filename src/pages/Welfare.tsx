@@ -7,7 +7,7 @@ const reps = [
   { name: 'Agani Chelsea', county: 'Vihiga', phone: '0742298348' },
   { name: 'Luttah Bravin', county: 'Bungoma', phone: '0758373915' },
   { name: 'Faith Mukabane', county: 'Kakamega', phone: '0746902609' },
-  { name: 'Debra Musimbi', county: 'Busia', phone: '0746260817' },
+  { name: 'patricia Bella', county: 'Busia', phone: '0726890401' },
 ];
 
 const Welfare = () => {
@@ -213,7 +213,7 @@ const Welfare = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">Contact Our Welfare Committee</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            For welfare-related inquiries, contact our Vice Chairperson Ivy Dina and the welfare committee.
+            For welfare-related inquiries, contact our Vice Chairperson Ivy Dina.
           </p>
           <Button asChild size="lg" className="bg-yellow-500 text-black hover:bg-yellow-400">
             <a href="https://wa.me/254741224547">Contact Welfare Committee</a>
