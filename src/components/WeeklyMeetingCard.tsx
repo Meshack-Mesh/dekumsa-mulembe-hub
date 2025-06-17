@@ -4,120 +4,152 @@ import { Calendar, Clock, MapPin, Plus } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
+
+interface Event {
+  id: string;
+  title: string;
+  description: string;
+  location: string;
+  next_date: string;
+  recurring_time: string;
+}
 
 const WeeklyMeetingCard = () => {
-  const [nextMeetingDate, setNextMeetingDate] = useState<string>('');
+  const { toast } = useToast();
+  const [nextMeeting, setNextMeeting] = useState<Date | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchNextMeetingDate();
-    
-    // Update weekly meeting dates automatically
-    const updateMeetingDate = () => {
-      const now = new Date();
-      if (now.getDay() === 5) { // Friday
-        // Update after Friday
-        setTimeout(fetchNextMeetingDate, 1000 * 60 * 60); // Check after 1 hour
-      }
-    };
-
-    updateMeetingDate();
+    fetchNextMeeting();
   }, []);
 
-  const fetchNextMeetingDate = async () => {
+  const fetchNextMeeting = async () => {
     try {
-      // First, update the meeting date
-      await supabase.rpc('update_weekly_meeting_date');
-      
-      // Then fetch the updated date
-      const { data } = await supabase
-        .from('events')
-        .select('next_date')
+      // Try to fetch from events table, fallback to calculation if not available
+      const { data, error } = await supabase
+        .from('events' as any)
+        .select('*')
         .eq('title', 'Weekly Meetings')
-        .eq('is_recurring', true)
         .single();
 
-      if (data?.next_date) {
-        setNextMeetingDate(data.next_date);
+      if (data && !error) {
+        setNextMeeting(new Date(data.next_date));
       } else {
         // Fallback: calculate next Friday
         const today = new Date();
         const nextFriday = new Date();
-        const daysUntilFriday = (5 - today.getDay() + 7) % 7 || 7;
-        nextFriday.setDate(today.getDate() + daysUntilFriday);
-        setNextMeetingDate(nextFriday.toISOString().split('T')[0]);
+        const dayOfWeek = today.getDay();
+        const daysUntilFriday = (5 - dayOfWeek + 7) % 7;
+        if (daysUntilFriday === 0 && today.getDay() === 5) {
+          // If today is Friday, get next Friday
+          nextFriday.setDate(today.getDate() + 7);
+        } else {
+          nextFriday.setDate(today.getDate() + daysUntilFriday);
+        }
+        setNextMeeting(nextFriday);
       }
     } catch (error) {
-      console.error('Error fetching meeting date:', error);
+      console.error('Error fetching meeting data:', error);
       // Fallback calculation
       const today = new Date();
       const nextFriday = new Date();
-      const daysUntilFriday = (5 - today.getDay() + 7) % 7 || 7;
-      nextFriday.setDate(today.getDate() + daysUntilFriday);
-      setNextMeetingDate(nextFriday.toISOString().split('T')[0]);
+      const dayOfWeek = today.getDay();
+      const daysUntilFriday = (5 - dayOfWeek + 7) % 7;
+      if (daysUntilFriday === 0) {
+        nextFriday.setDate(today.getDate() + 7);
+      } else {
+        nextFriday.setDate(today.getDate() + daysUntilFriday);
+      }
+      setNextMeeting(nextFriday);
+    } finally {
+      setLoading(false);
     }
   };
 
   const addToGoogleCalendar = () => {
-    const meetingDate = new Date(nextMeetingDate);
-    meetingDate.setHours(17, 0, 0, 0); // 5:00 PM
-    
-    const startTime = meetingDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-    const endTime = new Date(meetingDate.getTime() + 2 * 60 * 60 * 1000)
-      .toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    if (!nextMeeting) return;
 
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=DeKUMSA Weekly Meeting&dates=${startTime}/${endTime}&location=Room 14 SOB, DeKUT&details=Join us for our regular weekly meeting to discuss association matters and plan upcoming activities.`;
-    
+    const startDate = new Date(nextMeeting);
+    startDate.setHours(17, 0, 0); // 5:00 PM
+    const endDate = new Date(startDate);
+    endDate.setHours(18, 0, 0); // 6:00 PM
+
+    const formatDate = (date: Date) => {
+      return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    };
+
+    const eventDetails = {
+      text: 'DeKUMSA Weekly Meeting',
+      dates: `${formatDate(startDate)}/${formatDate(endDate)}`,
+      details: 'Join us for our regular weekly meetings to discuss association matters and plan upcoming activities.',
+      location: 'Room 14 SOB, DeKUT',
+      recur: 'RRULE:FREQ=WEEKLY;BYDAY=FR'
+    };
+
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventDetails.text)}&dates=${eventDetails.dates}&details=${encodeURIComponent(eventDetails.details)}&location=${encodeURIComponent(eventDetails.location)}&recur=${encodeURIComponent(eventDetails.recur)}`;
+
     window.open(googleCalendarUrl, '_blank');
-  };
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    toast({
+      title: "Calendar Event",
+      description: "Opening Google Calendar to add the event",
     });
   };
 
+  if (loading) {
+    return (
+      <Card className="border-l-4 border-blue-500">
+        <CardContent className="p-6">
+          <div className="animate-pulse">
+            <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
+            <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
+
   return (
-    <Card className="border-l-4 border-red-500">
+    <Card className="border-l-4 border-blue-500 hover:shadow-lg transition-shadow">
       <CardHeader>
-        <CardTitle className="text-red-700 flex items-center">
-          <Calendar className="w-6 h-6 mr-2" />
+        <CardTitle className="text-blue-700 flex items-center">
+          <Calendar className="w-5 h-5 mr-2" />
           Weekly Meetings
         </CardTitle>
-        <CardDescription>
-          Join us for our regular weekly meetings
-        </CardDescription>
+        <CardDescription>Join us for our regular weekly meetings</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
-          <div className="flex items-center space-x-2 text-gray-700">
-            <Calendar className="w-5 h-5 text-red-600" />
+        <div className="space-y-3">
+          <div className="flex items-center text-gray-600">
+            <Calendar className="w-4 h-4 mr-2" />
             <span className="font-medium">
-              Next Meeting: {nextMeetingDate ? formatDate(nextMeetingDate) : 'Loading...'}
+              Next Meeting: {nextMeeting?.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+              })}
             </span>
           </div>
           
-          <div className="flex items-center space-x-2 text-gray-700">
-            <Clock className="w-5 h-5 text-red-600" />
-            <span>Every Friday at 5:00 PM</span>
+          <div className="flex items-center text-gray-600">
+            <Clock className="w-4 h-4 mr-2" />
+            <span>5:00 PM - 6:00 PM</span>
           </div>
           
-          <div className="flex items-center space-x-2 text-gray-700">
-            <MapPin className="w-5 h-5 text-red-600" />
+          <div className="flex items-center text-gray-600">
+            <MapPin className="w-4 h-4 mr-2" />
             <span>Room 14 SOB, DeKUT</span>
           </div>
-
+          
           <div className="pt-4">
-            <Button
+            <Button 
               onClick={addToGoogleCalendar}
-              className="w-full bg-green-600 hover:bg-green-700"
-              disabled={!nextMeetingDate}
+              className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700"
             >
-              <Plus className="w-4 h-4 mr-2" />
-              Add to Google Calendar
+              <Plus className="w-4 h-4" />
+              <span>Add to Google Calendar</span>
             </Button>
           </div>
         </div>

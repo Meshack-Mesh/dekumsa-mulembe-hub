@@ -42,17 +42,27 @@ const Admin = () => {
 
   const fetchData = async () => {
     try {
-      const [membersResponse, messagesResponse] = await Promise.all([
-        supabase.from('dekumsa_members').select('*').order('created_at', { ascending: false }),
-        supabase.from('contact_messages').select('*').order('created_at', { ascending: false })
-      ]);
+      // Fetch members with fallback handling
+      let membersData: Member[] = [];
+      try {
+        const membersResponse = await supabase.from('dekumsa_members' as any).select('*').order('created_at', { ascending: false });
+        if (membersResponse.data) {
+          membersData = membersResponse.data;
+        }
+      } catch (error) {
+        console.log('Members table not available yet:', error);
+      }
 
-      if (membersResponse.data) setMembers(membersResponse.data);
+      // Fetch contact messages
+      const messagesResponse = await supabase.from('contact_messages').select('*').order('created_at', { ascending: false });
+
+      setMembers(membersData);
       if (messagesResponse.data) setMessages(messagesResponse.data);
     } catch (error) {
+      console.error('Error fetching data:', error);
       toast({
         title: "Error",
-        description: "Failed to fetch data",
+        description: "Failed to fetch some data. Some features may not be available.",
         variant: "destructive"
       });
     } finally {
@@ -85,10 +95,19 @@ const Admin = () => {
   };
 
   const downloadCSV = (data: any[], filename: string) => {
+    if (data.length === 0) {
+      toast({
+        title: "No Data",
+        description: "No data available to export",
+        variant: "destructive"
+      });
+      return;
+    }
+
     const headers = Object.keys(data[0]);
     const csvContent = [
       headers.join(','),
-      ...data.map(row => headers.map(header => `"${row[header]}"`).join(','))
+      ...data.map(row => headers.map(header => `"${row[header] || ''}"`).join(','))
     ].join('\n');
 
     const blob = new Blob([csvContent], { type: 'text/csv' });
@@ -195,11 +214,12 @@ const Admin = () => {
               <div className="flex justify-between items-center">
                 <div>
                   <CardTitle>DeKUMSA Members</CardTitle>
-                  <CardDescription>All registered members</CardDescription>
+                  <CardDescription>All registered members ({members.length})</CardDescription>
                 </div>
                 <Button
                   onClick={() => downloadCSV(members, 'dekumsa-members.csv')}
                   className="flex items-center space-x-2"
+                  disabled={members.length === 0}
                 >
                   <Download className="w-4 h-4" />
                   <span>Export CSV</span>
@@ -207,39 +227,46 @@ const Admin = () => {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse">
-                  <thead>
-                    <tr className="border-b">
-                      <th className="text-left p-2">Name</th>
-                      <th className="text-left p-2">Reg Number</th>
-                      <th className="text-left p-2">Course</th>
-                      <th className="text-left p-2">Year</th>
-                      <th className="text-left p-2">Contact</th>
-                      <th className="text-left p-2">Joined</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {members.map((member) => (
-                      <tr key={member.id} className="border-b hover:bg-gray-50">
-                        <td className="p-2 font-medium">{member.full_name}</td>
-                        <td className="p-2">{member.registration_number}</td>
-                        <td className="p-2">{member.course}</td>
-                        <td className="p-2">{member.year}</td>
-                        <td className="p-2">
-                          <div className="text-sm">
-                            <p>{member.phone}</p>
-                            <p className="text-gray-600">{member.email}</p>
-                          </div>
-                        </td>
-                        <td className="p-2 text-sm text-gray-600">
-                          {new Date(member.created_at).toLocaleDateString()}
-                        </td>
+              {members.length === 0 ? (
+                <div className="text-center py-8 text-gray-500">
+                  <Users className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                  <p>No members registered yet</p>
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="text-left p-2">Name</th>
+                        <th className="text-left p-2">Reg Number</th>
+                        <th className="text-left p-2">Course</th>
+                        <th className="text-left p-2">Year</th>
+                        <th className="text-left p-2">Contact</th>
+                        <th className="text-left p-2">Joined</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                    </thead>
+                    <tbody>
+                      {members.map((member) => (
+                        <tr key={member.id} className="border-b hover:bg-gray-50">
+                          <td className="p-2 font-medium">{member.full_name}</td>
+                          <td className="p-2">{member.registration_number}</td>
+                          <td className="p-2">{member.course}</td>
+                          <td className="p-2">{member.year}</td>
+                          <td className="p-2">
+                            <div className="text-sm">
+                              <p>{member.phone}</p>
+                              <p className="text-gray-600">{member.email}</p>
+                            </div>
+                          </td>
+                          <td className="p-2 text-sm text-gray-600">
+                            {new Date(member.created_at).toLocaleDateString()}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </CardContent>
           </Card>
         )}
@@ -250,11 +277,12 @@ const Admin = () => {
               <div className="flex justify-between items-center">
                 <div>
                   <CardTitle>Contact Messages</CardTitle>
-                  <CardDescription>Messages from the contact form</CardDescription>
+                  <CardDescription>Messages from the contact form ({messages.length})</CardDescription>
                 </div>
                 <Button
                   onClick={() => downloadCSV(messages, 'contact-messages.csv')}
                   className="flex items-center space-x-2"
+                  disabled={messages.length === 0}
                 >
                   <Download className="w-4 h-4" />
                   <span>Export CSV</span>
@@ -262,41 +290,48 @@ const Admin = () => {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
-                {messages.map((message) => (
-                  <div
-                    key={message.id}
-                    className={`p-4 rounded-lg border ${
-                      message.is_read ? 'bg-gray-50' : 'bg-blue-50 border-blue-200'
-                    }`}
-                  >
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
-                        <h4 className="font-medium">{message.name}</h4>
-                        <p className="text-sm text-gray-600">{message.email}</p>
+              {messages.length === 0 ? (
+                <div className="text-center py-8 text-gray-500">
+                  <Mail className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                  <p>No messages received yet</p>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {messages.map((message) => (
+                    <div
+                      key={message.id}
+                      className={`p-4 rounded-lg border ${
+                        message.is_read ? 'bg-gray-50' : 'bg-blue-50 border-blue-200'
+                      }`}
+                    >
+                      <div className="flex justify-between items-start mb-2">
+                        <div>
+                          <h4 className="font-medium">{message.name}</h4>
+                          <p className="text-sm text-gray-600">{message.email}</p>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          {!message.is_read && (
+                            <Badge variant="secondary">Unread</Badge>
+                          )}
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => markAsRead(message.id)}
+                            disabled={message.is_read}
+                          >
+                            <Eye className="w-4 h-4" />
+                          </Button>
+                        </div>
                       </div>
-                      <div className="flex items-center space-x-2">
-                        {!message.is_read && (
-                          <Badge variant="secondary">Unread</Badge>
-                        )}
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => markAsRead(message.id)}
-                          disabled={message.is_read}
-                        >
-                          <Eye className="w-4 h-4" />
-                        </Button>
-                      </div>
+                      <h5 className="font-medium mb-1">{message.subject}</h5>
+                      <p className="text-gray-700 text-sm mb-2">{message.message}</p>
+                      <p className="text-xs text-gray-500">
+                        {new Date(message.created_at).toLocaleString()}
+                      </p>
                     </div>
-                    <h5 className="font-medium mb-1">{message.subject}</h5>
-                    <p className="text-gray-700 text-sm mb-2">{message.message}</p>
-                    <p className="text-xs text-gray-500">
-                      {new Date(message.created_at).toLocaleString()}
-                    </p>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </CardContent>
           </Card>
         )}
