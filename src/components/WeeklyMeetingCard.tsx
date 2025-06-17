@@ -3,17 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, MapPin, Plus } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-
-interface Event {
-  id: string;
-  title: string;
-  description: string;
-  location: string;
-  next_date: string;
-  recurring_time: string;
-}
 
 const WeeklyMeetingCard = () => {
   const { toast } = useToast();
@@ -21,34 +11,10 @@ const WeeklyMeetingCard = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchNextMeeting();
+    // For now, just calculate next Friday since events table doesn't exist yet
+    calculateNextFriday();
+    setLoading(false);
   }, []);
-
-  const fetchNextMeeting = async () => {
-    try {
-      // Try to fetch from events table with proper type handling
-      const { data, error } = await supabase
-        .from('events')
-        .select('*')
-        .eq('title', 'Weekly Meetings')
-        .single();
-
-      if (data && !error) {
-        const eventData = data as Event;
-        setNextMeeting(new Date(eventData.next_date));
-      } else {
-        console.log('Events table not available, calculating next Friday');
-        // Fallback: calculate next Friday
-        calculateNextFriday();
-      }
-    } catch (error) {
-      console.error('Error fetching meeting data:', error);
-      // Fallback calculation
-      calculateNextFriday();
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const calculateNextFriday = () => {
     const today = new Date();

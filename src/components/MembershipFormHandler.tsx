@@ -18,17 +18,16 @@ export const useMembershipSubmission = () => {
 
   const submitMembership = async (formData: MembershipData) => {
     try {
-      // Store in Supabase using direct insert (avoiding RPC for now)
+      // For now, we'll use the contact_messages table as a temporary storage
+      // until the dekumsa_members table is created
       const { error } = await supabase
-        .from('dekumsa_members')
+        .from('contact_messages')
         .insert([{
-          full_name: formData.fullName,
-          registration_number: formData.registrationNumber,
-          course: formData.course,
-          year: formData.year,
-          phone: formData.phone,
+          name: formData.fullName,
           email: formData.email,
-          reason: formData.reason
+          subject: `Membership Application - ${formData.registrationNumber}`,
+          message: `Registration Number: ${formData.registrationNumber}\nCourse: ${formData.course}\nYear: ${formData.year}\nPhone: ${formData.phone}\nReason: ${formData.reason}`,
+          is_read: false
         }]);
 
       if (error) {

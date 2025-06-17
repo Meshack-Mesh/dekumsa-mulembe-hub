@@ -41,25 +41,40 @@ const Admin = () => {
 
   const fetchData = async () => {
     try {
-      // Fetch members with proper error handling
+      // For now, we'll parse membership applications from contact messages
+      // until the dekumsa_members table is created
       let membersData: Member[] = [];
-      try {
-        const membersResponse = await supabase.from('dekumsa_members').select('*').order('created_at', { ascending: false });
-        if (membersResponse.data && !membersResponse.error) {
-          membersData = membersResponse.data as Member[];
-        } else {
-          console.log('Members table error:', membersResponse.error);
-        }
-      } catch (error) {
-        console.log('Members table not available:', error);
-      }
-
-      // Fetch contact messages
       let messagesData: ContactMessage[] = [];
+
       try {
         const messagesResponse = await supabase.from('contact_messages').select('*').order('created_at', { ascending: false });
         if (messagesResponse.data && !messagesResponse.error) {
           messagesData = messagesResponse.data as ContactMessage[];
+          
+          // Extract membership applications from contact messages
+          membersData = messagesData
+            .filter(msg => msg.subject.includes('Membership Application'))
+            .map(msg => {
+              // Parse the message content to extract member details
+              const lines = msg.message.split('\n');
+              const regNumber = lines.find(line => line.startsWith('Registration Number:'))?.split(': ')[1] || '';
+              const course = lines.find(line => line.startsWith('Course:'))?.split(': ')[1] || '';
+              const year = lines.find(line => line.startsWith('Year:'))?.split(': ')[1] || '';
+              const phone = lines.find(line => line.startsWith('Phone:'))?.split(': ')[1] || '';
+              const reason = lines.find(line => line.startsWith('Reason:'))?.split(': ')[1] || '';
+
+              return {
+                id: msg.id,
+                full_name: msg.name,
+                registration_number: regNumber,
+                course: course,
+                year: year,
+                phone: phone,
+                email: msg.email,
+                reason: reason,
+                created_at: msg.created_at
+              } as Member;
+            });
         }
       } catch (error) {
         console.log('Contact messages error:', error);

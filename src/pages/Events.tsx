@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Calendar, Users } from 'lucide-react';
 import WeeklyMeetingCard from '@/components/WeeklyMeetingCard';
@@ -7,8 +8,7 @@ const Events = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch events from database or any other source
-    // For now, let's use a dummy array
+    // Restored original events data as requested
     const dummyEvents = [
       {
         id: 1,
@@ -55,7 +55,7 @@ const Events = () => {
         </div>
       </section>
 
-      {/* Events Listing */}
+      {/* Events Listing - Restored original events */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Upcoming Events</h2>
