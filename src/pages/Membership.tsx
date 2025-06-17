@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Heart, Users, Star, CreditCard, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,10 +6,10 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { useToast } from '@/hooks/use-toast';
+import { useMembershipSubmission } from '@/components/MembershipFormHandler';
 
 const Membership = () => {
-  const { toast } = useToast();
+  const { submitMembership } = useMembershipSubmission();
   const [formData, setFormData] = useState({
     fullName: '',
     registrationNumber: '',
@@ -20,22 +19,27 @@ const Membership = () => {
     email: '',
     reason: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Application Submitted!",
-      description: "Thank you for joining DeKUMSA. We'll be in touch soon.",
-    });
-    setFormData({
-      fullName: '',
-      registrationNumber: '',
-      course: '',
-      year: '',
-      phone: '',
-      email: '',
-      reason: ''
-    });
+    setIsSubmitting(true);
+    
+    const success = await submitMembership(formData);
+    
+    if (success) {
+      setFormData({
+        fullName: '',
+        registrationNumber: '',
+        course: '',
+        year: '',
+        phone: '',
+        email: '',
+        reason: ''
+      });
+    }
+    
+    setIsSubmitting(false);
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -160,6 +164,7 @@ const Membership = () => {
                       value={formData.fullName}
                       onChange={(e) => handleInputChange('fullName', e.target.value)}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div className="space-y-2">
@@ -169,6 +174,7 @@ const Membership = () => {
                       value={formData.registrationNumber}
                       onChange={(e) => handleInputChange('registrationNumber', e.target.value)}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -181,11 +187,12 @@ const Membership = () => {
                       value={formData.course}
                       onChange={(e) => handleInputChange('course', e.target.value)}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="year">Year of Study *</Label>
-                    <Select onValueChange={(value) => handleInputChange('year', value)}>
+                    <Select onValueChange={(value) => handleInputChange('year', value)} disabled={isSubmitting}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select year" />
                       </SelectTrigger>
@@ -209,6 +216,7 @@ const Membership = () => {
                       value={formData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div className="space-y-2">
@@ -219,6 +227,7 @@ const Membership = () => {
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -231,11 +240,16 @@ const Membership = () => {
                     onChange={(e) => handleInputChange('reason', e.target.value)}
                     placeholder="Share your motivation for joining our community..."
                     rows={3}
+                    disabled={isSubmitting}
                   />
                 </div>
 
-                <Button type="submit" className="w-full bg-red-600 hover:bg-red-700">
-                  Submit Application
+                <Button 
+                  type="submit" 
+                  className="w-full bg-red-600 hover:bg-red-700" 
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Submitting...' : 'Submit Application'}
                 </Button>
               </form>
             </CardContent>
