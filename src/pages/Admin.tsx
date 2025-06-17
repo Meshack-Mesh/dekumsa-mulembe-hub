@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Users, Mail, Calendar, Eye, Download } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -42,22 +41,32 @@ const Admin = () => {
 
   const fetchData = async () => {
     try {
-      // Fetch members with fallback handling
+      // Fetch members with proper error handling
       let membersData: Member[] = [];
       try {
-        const membersResponse = await supabase.from('dekumsa_members' as any).select('*').order('created_at', { ascending: false });
-        if (membersResponse.data) {
-          membersData = membersResponse.data;
+        const membersResponse = await supabase.from('dekumsa_members').select('*').order('created_at', { ascending: false });
+        if (membersResponse.data && !membersResponse.error) {
+          membersData = membersResponse.data as Member[];
+        } else {
+          console.log('Members table error:', membersResponse.error);
         }
       } catch (error) {
-        console.log('Members table not available yet:', error);
+        console.log('Members table not available:', error);
       }
 
       // Fetch contact messages
-      const messagesResponse = await supabase.from('contact_messages').select('*').order('created_at', { ascending: false });
+      let messagesData: ContactMessage[] = [];
+      try {
+        const messagesResponse = await supabase.from('contact_messages').select('*').order('created_at', { ascending: false });
+        if (messagesResponse.data && !messagesResponse.error) {
+          messagesData = messagesResponse.data as ContactMessage[];
+        }
+      } catch (error) {
+        console.log('Contact messages error:', error);
+      }
 
       setMembers(membersData);
-      if (messagesResponse.data) setMessages(messagesResponse.data);
+      setMessages(messagesData);
     } catch (error) {
       console.error('Error fetching data:', error);
       toast({

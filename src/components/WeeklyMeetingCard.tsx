@@ -26,45 +26,43 @@ const WeeklyMeetingCard = () => {
 
   const fetchNextMeeting = async () => {
     try {
-      // Try to fetch from events table, fallback to calculation if not available
+      // Try to fetch from events table with proper type handling
       const { data, error } = await supabase
-        .from('events' as any)
+        .from('events')
         .select('*')
         .eq('title', 'Weekly Meetings')
         .single();
 
       if (data && !error) {
-        setNextMeeting(new Date(data.next_date));
+        const eventData = data as Event;
+        setNextMeeting(new Date(eventData.next_date));
       } else {
+        console.log('Events table not available, calculating next Friday');
         // Fallback: calculate next Friday
-        const today = new Date();
-        const nextFriday = new Date();
-        const dayOfWeek = today.getDay();
-        const daysUntilFriday = (5 - dayOfWeek + 7) % 7;
-        if (daysUntilFriday === 0 && today.getDay() === 5) {
-          // If today is Friday, get next Friday
-          nextFriday.setDate(today.getDate() + 7);
-        } else {
-          nextFriday.setDate(today.getDate() + daysUntilFriday);
-        }
-        setNextMeeting(nextFriday);
+        calculateNextFriday();
       }
     } catch (error) {
       console.error('Error fetching meeting data:', error);
       // Fallback calculation
-      const today = new Date();
-      const nextFriday = new Date();
-      const dayOfWeek = today.getDay();
-      const daysUntilFriday = (5 - dayOfWeek + 7) % 7;
-      if (daysUntilFriday === 0) {
-        nextFriday.setDate(today.getDate() + 7);
-      } else {
-        nextFriday.setDate(today.getDate() + daysUntilFriday);
-      }
-      setNextMeeting(nextFriday);
+      calculateNextFriday();
     } finally {
       setLoading(false);
     }
+  };
+
+  const calculateNextFriday = () => {
+    const today = new Date();
+    const nextFriday = new Date();
+    const dayOfWeek = today.getDay();
+    const daysUntilFriday = (5 - dayOfWeek + 7) % 7;
+    
+    if (daysUntilFriday === 0 && today.getDay() === 5) {
+      // If today is Friday, get next Friday
+      nextFriday.setDate(today.getDate() + 7);
+    } else {
+      nextFriday.setDate(today.getDate() + (daysUntilFriday || 7));
+    }
+    setNextMeeting(nextFriday);
   };
 
   const addToGoogleCalendar = () => {
