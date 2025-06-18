@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Heart, Users, Calendar, Vote, Mail, CreditCard } from 'lucide-react';
+import { Menu, X, Heart, Users, Calendar, Mail, GraduationCap } from 'lucide-react';
 import { useState } from 'react';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -15,8 +15,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     { path: '/membership', label: 'Membership', icon: Users },
     { path: '/welfare', label: 'Welfare', icon: Heart },
     { path: '/events', label: 'Events', icon: Calendar },
-    { path: '/elections', label: 'Elections', icon: Vote },
-    { path: '/transparency', label: 'Finance', icon: CreditCard },
+    { path: '/alumni', label: 'Alumni', icon: GraduationCap },
     { path: '/contact', label: 'Contact', icon: Mail },
   ];
 
@@ -127,6 +126,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 <li><Link to="/about" className="text-gray-300 hover:text-white text-sm">About DeKUMSA</Link></li>
                 <li><Link to="/membership" className="text-gray-300 hover:text-white text-sm">Join Us</Link></li>
                 <li><Link to="/events" className="text-gray-300 hover:text-white text-sm">Events</Link></li>
+                <li><Link to="/alumni" className="text-gray-300 hover:text-white text-sm">Alumni</Link></li>
                 <li><Link to="/welfare" className="text-gray-300 hover:text-white text-sm">Welfare Support</Link></li>
               </ul>
             </div>

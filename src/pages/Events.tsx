@@ -10,15 +10,9 @@ const useWeeklyMeeting = () => {
   const [nextMeeting, setNextMeeting] = useState<Date | null>(null);
 
   useEffect(() => {
-    const calculateNextFriday = () => {
-      const today = new Date();
-      const nextFriday = new Date();
-      const dayOfWeek = today.getDay();
-      const daysUntilFriday = (5 - dayOfWeek + 7) % 7;
-      nextFriday.setDate(today.getDate() + (daysUntilFriday || 7));
-      setNextMeeting(nextFriday);
-    };
-    calculateNextFriday();
+    // Set specific date: Friday, June 20th, 2025
+    const specificFriday = new Date('2025-06-20');
+    setNextMeeting(specificFriday);
   }, []);
 
   const addToGoogleCalendar = () => {
@@ -37,10 +31,10 @@ const useWeeklyMeeting = () => {
     )}&dates=${formatDate(startDate)}/${formatDate(
       endDate
     )}&details=${encodeURIComponent(
-      'Join us for our regular weekly meetings to discuss association matters and plan upcoming activities.'
+      'Join us for our weekly meeting to discuss association matters and plan upcoming activities.'
     )}&location=${encodeURIComponent(
       'Room 14 SOB, DeKUT'
-    )}&recur=${encodeURIComponent('RRULE:FREQ=WEEKLY;BYDAY=FR')}`;
+    )}`;
 
     window.open(googleCalendarUrl, '_blank');
 
@@ -179,9 +173,9 @@ const Events = () => {
               <CardHeader>
                 <CardTitle className="text-blue-700 flex items-center">
                   <Calendar className="w-5 h-5 mr-2" />
-                  Weekly Meetings
+                  Weekly Meeting
                 </CardTitle>
-                <CardDescription>Join us for our regular weekly meetings</CardDescription>
+                <CardDescription>Join us for our weekly meeting</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">

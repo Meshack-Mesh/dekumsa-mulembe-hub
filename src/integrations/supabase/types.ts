@@ -45,6 +45,45 @@ export type Database = {
         }
         Relationships: []
       }
+      dekumsa_members: {
+        Row: {
+          course: string
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          phone: string
+          reason: string | null
+          registration_number: string
+          updated_at: string
+          year: string
+        }
+        Insert: {
+          course: string
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          phone: string
+          reason?: string | null
+          registration_number: string
+          updated_at?: string
+          year: string
+        }
+        Update: {
+          course?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          phone?: string
+          reason?: string | null
+          registration_number?: string
+          updated_at?: string
+          year?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

@@ -1,9 +1,9 @@
 
-import React from 'react';
+import { useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 
-interface MembershipData {
+interface MembershipFormData {
   fullName: string;
   registrationNumber: string;
   course: string;
@@ -16,63 +16,70 @@ interface MembershipData {
 export const useMembershipSubmission = () => {
   const { toast } = useToast();
 
-  const submitMembership = async (formData: MembershipData) => {
+  const submitMembership = async (formData: MembershipFormData): Promise<boolean> => {
     try {
-      // For now, we'll use the contact_messages table as a temporary storage
-      // until the dekumsa_members table is created
-      const { error } = await supabase
-        .from('contact_messages')
-        .insert([{
-          name: formData.fullName,
-          email: formData.email,
-          subject: `Membership Application - ${formData.registrationNumber}`,
-          message: `Registration Number: ${formData.registrationNumber}\nCourse: ${formData.course}\nYear: ${formData.year}\nPhone: ${formData.phone}\nReason: ${formData.reason}`,
-          is_read: false
-        }]);
+      console.log('Submitting membership data:', formData);
+
+      // Insert into dekumsa_members table
+      const { data, error } = await supabase
+        .from('dekumsa_members')
+        .insert([
+          {
+            full_name: formData.fullName,
+            registration_number: formData.registrationNumber,
+            course: formData.course,
+            year: formData.year,
+            phone: formData.phone,
+            email: formData.email,
+            reason: formData.reason || ''
+          }
+        ])
+        .select();
 
       if (error) {
-        console.error('Database error:', error);
-        throw error;
+        console.error('Error inserting member data:', error);
+        toast({
+          title: 'Submission Error',
+          description: 'Failed to submit membership application. Please try again.',
+          variant: 'destructive',
+        });
+        return false;
       }
 
-      // Send email notification
-      await sendEmailNotification(formData);
+      console.log('Member data inserted successfully:', data);
+
+      // Send notification email via edge function
+      try {
+        const emailResponse = await fetch('/api/send-membership-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (!emailResponse.ok) {
+          console.error('Failed to send notification email');
+        }
+      } catch (emailError) {
+        console.error('Email notification error:', emailError);
+        // Don't fail the whole process if email fails
+      }
 
       toast({
-        title: "Application Submitted!",
-        description: "Thank you for joining DeKUMSA. We'll be in touch soon.",
+        title: 'Application Submitted!',
+        description: 'Your membership application has been submitted successfully. You will be contacted soon.',
       });
 
       return true;
     } catch (error) {
-      console.error('Error submitting membership:', error);
+      console.error('Unexpected error during membership submission:', error);
       toast({
-        title: "Error",
-        description: "Failed to submit application. Please try again.",
-        variant: "destructive"
+        title: 'Submission Error',
+        description: 'An unexpected error occurred. Please try again.',
+        variant: 'destructive',
       });
       return false;
-    }
-  };
-
-  const sendEmailNotification = async (formData: MembershipData) => {
-    try {
-      // Send via edge function
-      const { error } = await supabase.functions.invoke('send-membership-email', {
-        body: {
-          to: 'dekumsafamily@gmail.com',
-          subject: `New Membership Application - ${formData.fullName}`,
-          memberData: formData
-        }
-      });
-
-      if (error) {
-        console.error('Email sending error:', error);
-      } else {
-        console.log('Email notification sent successfully');
-      }
-    } catch (error) {
-      console.error('Failed to send email:', error);
     }
   };
 

@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,6 +11,7 @@ import Leadership from "./pages/Leadership";
 import Membership from "./pages/Membership";
 import Welfare from "./pages/Welfare";
 import Events from "./pages/Events";
+import Alumni from "./pages/Alumni";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Admin from "./pages/Admin";
@@ -30,6 +32,7 @@ const App = () => (
             <Route path="/membership" element={<Membership />} />
             <Route path="/welfare" element={<Welfare />} />
             <Route path="/events" element={<Events />} />
+            <Route path="/alumni" element={<Alumni />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/admin" element={<Admin />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
