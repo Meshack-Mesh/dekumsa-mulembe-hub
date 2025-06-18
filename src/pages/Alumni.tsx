@@ -6,36 +6,36 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 const Alumni = () => {
   const alumniStories = [
     {
-      name: "Sarah Wanjiku",
-      year: "Class of 2020",
-      course: "Computer Science",
-      currentPosition: "Software Engineer at Safaricom",
-      impact: "Raised KES 150,000 for school fees for 3 current students struggling financially",
+      name: "Collins Otieno",
+      year: "Class of 2023",
+      course: "Polymer Chemistry",
+      currentPosition: "Software Engineer",
+      impact: "Raised KES 100,000 for school fees for 3 current students struggling financially",
       quote: "DeKUMSA taught me the value of unity and giving back. Every contribution counts.",
       image: "/lovable-uploads/placeholder.jpg"
     },
     {
-      name: "Michael Ochieng",
-      year: "Class of 2019",
-      course: "Business Administration", 
+      name: "Yvonne Washika",
+      year: "Class of 2024",
+      course: "Information Technology",
       currentPosition: "Entrepreneur & CEO",
       impact: "Sponsored hostel accommodation for 5 students and donated laptops for the association",
       quote: "The network I built through DeKUMSA has been invaluable in my career journey.",
       image: "/lovable-uploads/placeholder.jpg"
     },
     {
-      name: "Grace Nafula",
-      year: "Class of 2018",
-      course: "Nursing",
-      currentPosition: "Senior Nurse at Kenyatta Hospital",
+      name: "John Kitui",
+      year: "Class of 2025",
+      course: "Electrical and Electronics Engineering",
+      currentPosition: "Still Hustling😂",
       impact: "Organized medical camps for DeKUT students and raised KES 80,000 for emergency welfare fund",
       quote: "DeKUMSA showed me the importance of community care and supporting each other.",
       image: "/lovable-uploads/placeholder.jpg"
     },
     {
-      name: "James Wekesa",
-      year: "Class of 2021",
-      course: "Mechanical Engineering",
+      name: "Emmanuel Lumbasi",
+      year: "Class of 2025",
+      course: "Civil Engineering",
       currentPosition: "Project Manager at KenGen",
       impact: "Mentors current engineering students and has sponsored 2 students' project materials",
       quote: "Through DeKUMSA, I learned leadership skills that shaped my professional life.",
@@ -52,7 +52,7 @@ const Alumni = () => {
     },
     {
       icon: Heart,
-      number: "KES 2M+",
+      number: "KES 1M+",
       label: "Total Contributions",
       description: "Raised for student welfare and development"
     },
