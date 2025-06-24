@@ -91,6 +91,7 @@ const Events = () => {
         "/lovable-uploads/mau7.jpg",
         "/lovable-uploads/mau8.jpg",
         "/lovable-uploads/mau9.jpg"
+        "/lovable-uploads/mau10.jpg"
       ]
     },
     {
@@ -99,7 +100,8 @@ const Events = () => {
       description: "A fun-filled day at Karatina with games, sports, and fellowship activities that brought the DeKUMSA family together.",
       participants: "60 members",
       images: [
-        "/lovable-uploads/kara1.jpg",
+        "/lovable-uploads/kara.jpg",
+         "/lovable-uploads/kara1.jpg",
         "/lovable-uploads/kara2.jpg",
         "/lovable-uploads/kara3.jpg",
         "/lovable-uploads/kara4.jpg",
@@ -112,12 +114,17 @@ const Events = () => {
       description: "A heartwarming visit to Huruma Children's Home where we donated supplies and spent quality time with the children.",
       participants: "30 members",
       images: [
-        "/lovable-uploads/huruma1.jpg",
+        "/lovable-uploads/huruma.jpg",
+         "/lovable-uploads/huruma1.jpg",
         "/lovable-uploads/huruma2.jpg",
         "/lovable-uploads/huruma3.jpg",
         "/lovable-uploads/huruma4.jpg",
         "/lovable-uploads/huruma5.jpg",
         "/lovable-uploads/huruma6.jpg"
+        "/lovable-uploads/huruma7.jpg"
+        "/lovable-uploads/huruma8.jpg"
+        "/lovable-uploads/huruma9.jpg"
+        "/lovable-uploads/huruma10.jpg"
       ]
     }
   ];

@@ -9,8 +9,8 @@ const Alumni = () => {
       name: "Collins Nyongesa",
       year: "Class of 2023",
       course: "Polymer Chemistry",
-      currentPosition: "Software Engineer",
-      impact: "Raised KES 100,000 for school fees for 3 current students struggling financially",
+      currentPosition: "Electonics Dealer $ Supplier",
+      impact: "A very active coalition spokesperson, former DeKUMSA chair and a champion for the rights of many not only in the association but the whole school",
       quote: "DeKUMSA taught me the value of unity and giving back. Every contribution counts.",
       image: "/lovable-uploads/placeholder.jpg"
     },
@@ -27,8 +27,8 @@ const Alumni = () => {
       name: "John Kituyi",
       year: "Class of 2025",
       course: "Electrical and Electronics Engineering",
-      currentPosition: "Still Hustling",
-      impact: "Organized medical camps for DeKUT students and raised KES 80,000 for emergency welfare fund",
+      currentPosition: "Unemployed",
+      impact: "Organized different activities as the DeKUMSA chair and alos an active political member championing for the betterment of the Mulembe assoication. Also served as a  delegate",
       quote: "DeKUMSA showed me the importance of community care and supporting each other.",
       image: "/lovable-uploads/placeholder.jpg"
     },
@@ -36,9 +36,9 @@ const Alumni = () => {
       name: "Emmanuel Lumbasi",
       year: "Class of 2025",
       course: "Civil Engineering",
-      currentPosition: "Project Manager at KenGen",
-      impact: "Mentors current engineering students and has sponsored 2 students' project materials",
-      quote: "Through DeKUMSA, I learned leadership skills that shaped my professional life.",
+      currentPosition: "Project Manager",
+      impact: "Mentors current engineering students",
+      quote: "Through DeKUMSA, I learned leadership skills that shaped my professional life having served as a captain and the Chair in different executives.",
       image: "/lovable-uploads/placeholder.jpg"
     }
   ];
