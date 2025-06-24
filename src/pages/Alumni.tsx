@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 const Alumni = () => {
   const alumniStories = [
     {
-      name: "Collins Otieno",
+      name: "Collins Nyongesa",
       year: "Class of 2023",
       course: "Polymer Chemistry",
       currentPosition: "Software Engineer",
@@ -24,10 +24,10 @@ const Alumni = () => {
       image: "/lovable-uploads/placeholder.jpg"
     },
     {
-      name: "John Kitui",
+      name: "John Kituyi",
       year: "Class of 2025",
       course: "Electrical and Electronics Engineering",
-      currentPosition: "Still Hustling😂",
+      currentPosition: "Still Hustling",
       impact: "Organized medical camps for DeKUT students and raised KES 80,000 for emergency welfare fund",
       quote: "DeKUMSA showed me the importance of community care and supporting each other.",
       image: "/lovable-uploads/placeholder.jpg"

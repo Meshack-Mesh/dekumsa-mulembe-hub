@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 const Home = () => {
   const announcements = [
     "📅 Weekly Meetings Every Friday Room 14 SOB from 5PM",
-    "🎉 Upcoming events: Charity and Mulembe Bash - dates to be communicated",
+    "🎉 Upcoming events: Fun day on 5th July and Mulembe Bash; date to be communicated",
       "📱 Join our WhatsApp group: +254741224547"
   ];
 

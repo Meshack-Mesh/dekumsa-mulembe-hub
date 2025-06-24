@@ -10,9 +10,15 @@ const useWeeklyMeeting = () => {
   const [nextMeeting, setNextMeeting] = useState<Date | null>(null);
 
   useEffect(() => {
-    // Set specific date: Friday, June 20th, 2025
-    const specificFriday = new Date('2025-06-20');
-    setNextMeeting(specificFriday);
+    const calculateNextFriday = () => {
+      const today = new Date();
+      const nextFriday = new Date();
+      const dayOfWeek = today.getDay();
+      const daysUntilFriday = (5 - dayOfWeek + 7) % 7;
+      nextFriday.setDate(today.getDate() + (daysUntilFriday || 7));
+      setNextMeeting(nextFriday);
+    };
+    calculateNextFriday();
   }, []);
 
   const addToGoogleCalendar = () => {
@@ -31,10 +37,10 @@ const useWeeklyMeeting = () => {
     )}&dates=${formatDate(startDate)}/${formatDate(
       endDate
     )}&details=${encodeURIComponent(
-      'Join us for our weekly meeting to discuss association matters and plan upcoming activities.'
+      'Join us for our regular weekly meetings to discuss association matters and plan upcoming activities.'
     )}&location=${encodeURIComponent(
       'Room 14 SOB, DeKUT'
-    )}`;
+    )}&recur=${encodeURIComponent('RRULE:FREQ=WEEKLY;BYDAY=FR')}`;
 
     window.open(googleCalendarUrl, '_blank');
 
@@ -52,11 +58,11 @@ const Events = () => {
 
   const upcomingEvents = [
     {
-      title: "Charity Activity",
-      date: "Date to be communicated",
-      time: "TBD",
-      location: "Venue TBD",
-      description: "Join us for our upcoming charity activity to give back to the community.",
+      title: "DeKUMSA Fun Day",
+      date: "5th July 2025",
+      time: "9:00AM",
+      location: "Farm House",
+      description: "Join us for our upcoming Fun day as we break class monopoly to do some social interaction and many other games. ",
       type: "Community"
     },
     {
@@ -71,8 +77,8 @@ const Events = () => {
 
   const pastEvents = [
     {
-      title: "Mau Excursion",
-      date: "October 2024",
+      title: "Mau Caves Excursion",
+      date: "June 2025",
       description: "An amazing trip to Mau Forest where members enjoyed nature walks, team building activities, and environmental conservation activities.",
       participants: "45 members",
       images: [
@@ -88,9 +94,9 @@ const Events = () => {
       ]
     },
     {
-      title: "Kara Fun Day",
-      date: "September 2024", 
-      description: "A fun-filled day at Kara with games, sports, and fellowship activities that brought the DeKUMSA family together.",
+      title: "Karatina Fun Day",
+      date: "March 2025",
+      description: "A fun-filled day at Karatina with games, sports, and fellowship activities that brought the DeKUMSA family together.",
       participants: "60 members",
       images: [
         "/lovable-uploads/kara1.jpg",
@@ -102,7 +108,7 @@ const Events = () => {
     },
     {
       title: "Huruma Children's Home Visit",
-      date: "August 2024",
+      date: "February 2025",
       description: "A heartwarming visit to Huruma Children's Home where we donated supplies and spent quality time with the children.",
       participants: "30 members",
       images: [
@@ -173,9 +179,9 @@ const Events = () => {
               <CardHeader>
                 <CardTitle className="text-blue-700 flex items-center">
                   <Calendar className="w-5 h-5 mr-2" />
-                  Weekly Meeting
+                  Weekly Meetings
                 </CardTitle>
-                <CardDescription>Join us for our weekly meeting</CardDescription>
+                <CardDescription>Join us for our regular weekly meetings</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">

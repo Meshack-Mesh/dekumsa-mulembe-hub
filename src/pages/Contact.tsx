@@ -67,7 +67,7 @@ const Contact = () => {
       url: "https://wa.me/254741224547",
       description: "Join our community chat"
     },
-           {
+    {
       name: "YouTube",
       url: "https://youtube.com/@DeKUMSA",
       description: "DeKUMSA Channel"
