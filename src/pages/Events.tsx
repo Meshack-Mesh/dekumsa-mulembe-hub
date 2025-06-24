@@ -90,7 +90,7 @@ const Events = () => {
         "/lovable-uploads/mau6.jpg",
         "/lovable-uploads/mau7.jpg",
         "/lovable-uploads/mau8.jpg",
-        "/lovable-uploads/mau9.jpg"
+        "/lovable-uploads/mau9.jpg",
         "/lovable-uploads/mau10.jpg"
       ]
     },
@@ -120,10 +120,10 @@ const Events = () => {
         "/lovable-uploads/huruma3.jpg",
         "/lovable-uploads/huruma4.jpg",
         "/lovable-uploads/huruma5.jpg",
-        "/lovable-uploads/huruma6.jpg"
-        "/lovable-uploads/huruma7.jpg"
-        "/lovable-uploads/huruma8.jpg"
-        "/lovable-uploads/huruma9.jpg"
+        "/lovable-uploads/huruma6.jpg",
+        "/lovable-uploads/huruma7.jpg",
+        "/lovable-uploads/huruma8.jpg",
+        "/lovable-uploads/huruma9.jpg",
         "/lovable-uploads/huruma10.jpg"
       ]
     }
