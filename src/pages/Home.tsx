@@ -8,7 +8,7 @@ const Home = () => {
   const announcements = [
     "📅 Weekly Meetings Every Friday Room 14 SOB from 5PM",
     "🎉 Upcoming events: Fun day on 5th July and Mulembe Bash; date to be communicated",
-    "Amalasire kashila amatsi".
+    "Amalasire kashila amatsi",
   ];
 
   const quickStats = [
