@@ -4,10 +4,26 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 
+/**
+ * -----------------------------------------------------------------------------
+ *   EVENTS PAGE  •  DeKUMSA
+ * -----------------------------------------------------------------------------
+ *  ✓ One source of truth – no duplicate definitions
+ *  ✓ "Add to Google Calendar" for weekly meeting **and** ad‑hoc events
+ *  ✓ Graceful fallback (toast) when date is "TBD / to be communicated"
+ *  ✓ Strong typing for event objects for easier maintenance
+ * -----------------------------------------------------------------------------
+ */
+
+// ───────────────────────────────────────────────────────────────────────────────
+//  Shared helpers
+// ───────────────────────────────────────────────────────────────────────────────
 const formatForGoogle = (date: Date) =>
   date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
 
-
+// ───────────────────────────────────────────────────────────────────────────────
+//  Weekly‑meeting hook
+// ───────────────────────────────────────────────────────────────────────────────
 const useWeeklyMeeting = () => {
   const { toast } = useToast();
   const [nextMeeting, setNextMeeting] = useState<Date | null>(null);
@@ -44,7 +60,9 @@ const useWeeklyMeeting = () => {
   return { nextMeeting, addToGoogleCalendar };
 };
 
-
+// ───────────────────────────────────────────────────────────────────────────────
+//  Types
+// ───────────────────────────────────────────────────────────────────────────────
 interface UpcomingEvent {
   title: string;
   date: string;  // ISO date or human‑readable "TBD" line
@@ -235,4 +253,101 @@ const Events = () => {
             {/* Weekly Meeting Card */}
             <Card className="border-l-4 border-blue-500 hover:shadow-lg transition-shadow">
               <CardHeader>
-                <CardTitle className="text-blue
+                <CardTitle className="text-blue-700 flex items-center">
+                                  <Calendar className="w-5 h-5 mr-2" />
+                                  Weekly Meetings
+                                </CardTitle>
+                                <CardDescription>Join us for our regular weekly meetings</CardDescription>
+                              </CardHeader>
+                              <CardContent>
+                                <div className="space-y-3">
+                                  <div className="flex items-center text-gray-600">
+                                    <Calendar className="w-4 h-4 mr-2" />
+                                    <span className="font-medium">
+                                      Next Meeting:{' '}
+                                      {nextMeeting?.toLocaleDateString('en-US', {
+                                        weekday: 'long',
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric',
+                                      })}
+                                    </span>
+                                  </div>
+                                  <div className="flex items-center text-gray-600">
+                                    <Clock className="w-4 h-4 mr-2" />
+                                    <span>5:00 PM – 6:00 PM</span>
+                                  </div>
+                                  <div className="flex items-center text-gray-600">
+                                    <MapPin className="w-4 h-4 mr-2" />
+                                    <span>Room 14 SOB, DeKUT</span>
+                                  </div>
+                                  <div className="pt-4">
+                                    <Button
+                                      onClick={addToGoogleCalendar}
+                                      className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 w-full"
+                                    >
+                                      <Plus className="w-4 h-4" />
+                                      <span>Add to Google Calendar</span>
+                                    </Button>
+                                  </div>
+                                </div>
+                              </CardContent>
+                            </Card>
+
+                            {/* Additional Upcoming Events */}
+                            {upcomingEvents.map((event, idx) => (
+                              <Card
+                                key={idx}
+                                className="border-l-4 border-green-500 hover:shadow-lg transition-shadow"
+                              >
+                                <CardHeader>
+                                  <CardTitle className="text-green-700">{event.title}</CardTitle>
+                                  <CardDescription className="flex items-center text-gray-600">
+                                    <Calendar className="w-4 h-4 mr-1" />
+                                    {event.date}
+                                  </CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                  <p className="text-gray-700 mb-4">{event.description}</p>
+                                  <div className="text-sm text-gray-600 space-y-1">
+                                    <div className="flex items-center">
+                                      <Clock className="w-4 h-4 mr-2" />
+                                      {event.time}
+                                    </div>
+                                    <div className="flex items-center">
+                                      <MapPin className="w-4 h-4 mr-2" />
+                                      {event.location}
+                                    </div>
+                                  </div>
+                                  <div className="pt-4">
+                                    <Button
+                                      onClick={() => addEventToGoogleCalendar(event)}
+                                      className="bg-green-600 hover:bg-green-700 w-full"
+                                    >
+                                      Add to Google Calendar
+                                    </Button>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                            ))}
+                          </div>
+                        </div>
+                      </section>
+
+                      {/* Past Events */}
+                      <section className="py-16 bg-muted">
+                        <div className="container mx-auto px-4">
+                          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Past Events</h2>
+                          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                            {pastEvents.map((event, idx) => (
+                              <PastEventCarousel key={idx} event={event} />
+                            ))}
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  );
+                };
+
+                export default Events;
+
