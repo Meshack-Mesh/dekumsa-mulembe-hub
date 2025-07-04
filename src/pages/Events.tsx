@@ -97,7 +97,7 @@ const Events = () => {
   const upcomingEvents: UpcomingEvent[] = [
     {
       title: 'DeKUMSA Fun Day',
-      date: '2025-07-05',
+      date: '2025-07-12',
       time: '09:00 AM',
       location: 'Farm House',
       description:
@@ -121,7 +121,7 @@ const Events = () => {
       date: 'June 2025',
       description:
         'An amazing trip to Mau Forest where members enjoyed nature walks, team building, and environmental conservation activities.',
-      participants: '45 members',
+      participants: '51 members',
       images: [
         '/lovable-uploads/mau1.jpg',
         '/lovable-uploads/mau2.jpg',

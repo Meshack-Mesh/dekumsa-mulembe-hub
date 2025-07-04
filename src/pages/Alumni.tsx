@@ -27,7 +27,7 @@ const Alumni = () => {
       name: "John Kituyi",
       year: "Class of 2025",
       course: "Electrical and Electronics Engineering",
-      currentPosition: "Unemployed",
+      currentPosition: "KPLC officer",
       impact: "Organized different activities as the DeKUMSA chair and alos an active political member championing for the betterment of the Mulembe assoication. Also served as a  delegate",
       quote: "DeKUMSA showed me the importance of community care and supporting each other.",
       image: "/lovable-uploads/placeholder.jpg"
