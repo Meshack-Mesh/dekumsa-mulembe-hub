@@ -76,3 +76,81 @@
 .android-status-bar {
   padding-top: var(--status-bar-height, 0px);
 }
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  /* Ensure proper spacing on mobile */
+  .container {
+    @apply px-3;
+  }
+  
+  /* Optimize card layouts for mobile */
+  .grid {
+    gap: 1rem;
+  }
+  
+  /* Ensure proper button sizing */
+  .btn, button {
+    @apply min-h-[48px] px-4 py-3;
+  }
+  
+  /* Optimize text sizes for mobile */
+  h1 {
+    @apply text-2xl;
+  }
+  
+  h2 {
+    @apply text-xl;
+  }
+  
+  h3 {
+    @apply text-lg;
+  }
+  
+  /* Ensure proper touch targets */
+  a, button {
+    @apply min-h-[44px] flex items-center justify-center;
+  }
+}
+
+/* Prevent content from going under the header */
+.main-content {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Fix header height and positioning */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: white;
+  border-bottom: 4px solid #ef4444;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile navigation improvements */
+.mobile-nav {
+  position: fixed;
+  top: 64px; /* Height of header */
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 45;
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+/* Improve mobile touch experience */
+@media (pointer: coarse) {
+  /* Larger touch targets for mobile */
+  button, a {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  /* Improve button hover states for touch */
+  button:hover, a:hover {
+    opacity: 0.8;
+  }
+}
