@@ -96,24 +96,25 @@ const Events = () => {
   // ── Data ────────────────────────────────────────────────────────────────
   const upcomingEvents: UpcomingEvent[] = [
     {
-      title: 'DeKUMSA Fun Day',
-      date: '2025-07-12',
-      time: '09:00 AM',
-      location: 'Farm House',
+      title: 'DeKUMSA Charity🤗',
+      date: 'Date to be Communicated',
+      time: 'TBD',
+      location: 'Venue TBD',
       description:
-        'Join us for our Fun Day as we break class monopoly to socialise and play games.',
+        'Let’s step beyond the classroom and share joy, laughter, and love with the little ones.',
       type: 'Community',
     },
     {
       title: 'Mulembe Bash',
-      date: 'Date to be communicated',
+      date: 'Date to be Communicated',
       time: 'TBD',
       location: 'Venue TBD',
       description:
-        'Celebrate Luhya culture and heritage with music, dance, food, and fellowship.',
+        'Celebrate Luhya culture and heritage with music, dance, food, and bonefires.',
       type: 'Cultural',
     },
   ];
+
 
   const pastEvents: PastEvent[] = [
     {
