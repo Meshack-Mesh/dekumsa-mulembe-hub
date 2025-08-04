@@ -6,9 +6,8 @@ import { Button } from '@/components/ui/button';
 
 const Home = () => {
   const announcements = [
-    "📅 Weekly Meetings Every Friday Room 14 SOB from 5PM",
-    "🎉 Upcoming events: Fun day on 5th July and Mulembe Bash; date to be communicated",
-    "Amalasire kashila amatsi",
+    "📅 Let's meet again next semester for more fun, more social topics and most importantly welcome our fellow first years in style.",
+     "DeKUMSa wishes you success in your exams",
   ];
 
   const quickStats = [
