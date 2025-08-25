@@ -1,5 +1,4 @@
 
-
 import React, { useEffect, useState } from 'react';
 import {
   Calendar,
@@ -96,25 +95,54 @@ const Events = () => {
   // ── Data ────────────────────────────────────────────────────────────────
   const upcomingEvents: UpcomingEvent[] = [
     {
-      title: 'DeKUMSA Charity🤗',
-      date: 'Date to be Communicated',
-      time: 'TBD',
-      location: 'Venue TBD',
-      description:
-        'Let’s step beyond the classroom and share joy, laughter, and love with the little ones.',
-      type: 'Community',
+      title: 'First Weekly Meeting',
+      date: '2025-09-05',
+      time: '5:00 PM',
+      location: 'Room 14 SOB',
+      description: 'Join us for our first meeting of the semester to discuss upcoming activities and welcome new members.',
+      type: 'Meeting',
     },
     {
-      title: 'Mulembe Bash',
-      date: 'Date to be Communicated',
-      time: 'TBD',
+      title: 'Freshers Induction',
+      date: '2025-09-12',
+      time: '4:30 PM',
+      location: 'Room 14 SOB',
+      description: 'Welcome ceremony for new DeKUMSA members. Learn about our culture, activities, and how to get involved.',
+      type: 'Induction',
+    },
+    {
+      title: 'Zaina Falls Hike',
+      date: '2025-09-27',
+      time: 'Meeting Point: Roundabout',
+      location: 'Zaina Falls',
+      description: 'Adventure hike to Zaina Falls for team building and enjoying nature with fellow members.',
+      type: 'Adventure',
+    },
+    {
+      title: 'Fun Day',
+      date: '2025-10-18',
+      time: '10:00 AM',
       location: 'Venue TBD',
-      description:
-        'Celebrate Luhya culture and heritage with music, dance, food, and bonefires.',
+      description: 'A day filled with games, entertainment, and fellowship activities for all DeKUMSA members.',
+      type: 'Recreation',
+    },
+    {
+      title: 'Executive Elections',
+      date: '2025-11-07',
+      time: '4:30 PM',
+      location: 'Room 14 SOB',
+      description: 'Democratic elections for the new DeKUMSA executive committee. Your voice matters!',
+      type: 'Elections',
+    },
+    {
+      title: 'Mulembe Night Bash',
+      date: '2025-11-21',
+      time: '6:00 PM - 6:00 AM',
+      location: 'Venue TBD',
+      description: 'All-night celebration of Luhya culture with music, dance, food, and entertainment.',
       type: 'Cultural',
     },
   ];
-
 
   const pastEvents: PastEvent[] = [
     {
@@ -203,7 +231,7 @@ const Events = () => {
     window.open(url, '_blank');
     toast({
       title: 'Calendar Event',
-      description: `Opening Google Calendar for “${e.title}”`,
+      description: `Opening Google Calendar for "${e.title}"`,
     });
   };
 
