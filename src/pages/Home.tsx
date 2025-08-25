@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button';
 
 const Home = () => {
   const announcements = [
-    "🎉 WELCOME to all incoming Luhya first years! DeKUMSA is your home away from home.",
-    "📅 Let's meet again next semester for more fun, more social topics and most importantly welcome our fellow first years in style.",
-    "DeKUMSa wishes you success in your exams",
+    "🎉 WELCOME to all incoming first years! DeKUMSA is your home away from home.",
+    "📅 Let's meet for our weekly meetings from 5th September for more fun, more social topics and most importantly welcome our fellow first years in style.",
+    "DeKUMSa wishes you all incoming first year a happy stay in DEKUT",
   ];
 
   const quickStats = [
@@ -76,7 +76,7 @@ const Home = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Welcome Luhya First Years! 🎉
+                Welcome First Years! 🎉
               </h2>
               <p className="text-lg mb-6 opacity-90">
                 On behalf of the entire DeKUMSA fraternity, it is our greatest joy to welcome you into our family. 
@@ -87,6 +87,7 @@ const Home = () => {
                 DeKUMSA is more than an association, it is a home away from home. We are bound together by 
                 our shared heritage, and through unity, we support one another both socially and academically. 
                 This is a space where you will find guidance, laughter, and lifelong friendships.
+                From Joseph Okwemba - DeKUMSA Chairman.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="bg-white text-green-600 hover:bg-gray-100">
