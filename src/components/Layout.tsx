@@ -11,7 +11,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   const navItems = [
     { path: '/', label: 'Home', icon: Heart },
-    { path: '/about', label: 'About', icon: Users },
     { path: '/leadership', label: 'Leadership', icon: Users },
     { path: '/membership', label: 'Membership', icon: Users },
     { path: '/welfare', label: 'Welfare', icon: Heart },
@@ -73,7 +72,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-6">
-              {navItems.slice(0, 6).map((item) => {
+              {navItems.slice(0, 5).map((item) => {
                 const Icon = item.icon;
                 return (
                   <Link
@@ -163,7 +162,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-yellow-400">Quick Links</h4>
               <ul className="space-y-2">
-                <li><Link to="/about" className="text-gray-300 hover:text-white text-sm">About DeKUMSA</Link></li>
                 <li><Link to="/membership" className="text-gray-300 hover:text-white text-sm">Join Us</Link></li>
                 <li><Link to="/events" className="text-gray-300 hover:text-white text-sm">Events</Link></li>
                 <li><Link to="/alumni" className="text-gray-300 hover:text-white text-sm">Alumni</Link></li>
