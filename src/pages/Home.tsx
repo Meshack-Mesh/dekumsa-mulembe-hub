@@ -71,6 +71,54 @@ const Home = () => {
       </div>
     </section>
 
+      {/* Featured Event - Zaina Falls Hike */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-green-600 text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Zaina Falls Hike Adventure! 🏔️
+              </h2>
+              <p className="text-lg mb-6 opacity-90">
+                Join us for an exciting adventure to Zaina Falls on September 27th, 2025! 
+                Experience nature's beauty, team building activities, and create unforgettable memories 
+                with your DeKUMSA family.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center">
+                  <Calendar className="w-5 h-5 mr-3" />
+                  <span className="text-lg">September 27th, 2025</span>
+                </div>
+                <div className="flex items-center">
+                  <Users className="w-5 h-5 mr-3" />
+                  <span className="text-lg">Meeting Point: Roundabout</span>
+                </div>
+                <div className="flex items-center">
+                  <Heart className="w-5 h-5 mr-3" />
+                  <span className="text-lg font-semibold">Cost: Ksh. 250</span>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
+                  <Link to="/events">View All Events</Link>
+                </Button>
+              </div>
+              <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <p className="text-lg font-semibold">For registration: Call/WhatsApp</p>
+                <p className="text-2xl font-bold text-yellow-300">0796 190382</p>
+              </div>
+            </div>
+            <div className="text-center">
+              <img
+                src="/lovable-uploads/23a0597f-b03f-428b-83ec-acf06b76932b.png"
+                alt="Zaina Falls Hike Adventure Poster"
+                className="w-full h-auto max-w-md mx-auto rounded-lg shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Scrolling Announcements */}
       <section className="bg-yellow-400 py-3 overflow-hidden">
         <div className="animate-marquee whitespace-nowrap">
