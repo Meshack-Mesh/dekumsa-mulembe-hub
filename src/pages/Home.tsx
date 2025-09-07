@@ -6,9 +6,10 @@ import { Button } from '@/components/ui/button';
 
 const Home = () => {
   const announcements = [
-    "🎉 WELCOME to all incoming first years! DeKUMSA is your home away from home.",
-    "📅 Let's meet for our weekly meetings from 5th September for more fun, more social topics and most importantly welcome our fellow first years in style.",
-    "DeKUMSa wishes you all incoming first year a happy stay in DEKUT",
+    "📅 Join us for weekly meetings every Friday at 5:00 PM in Room 14 SOB",
+    "🎯 Upcoming Events: Freshers Induction, Zaina Falls Hike, Fun Day, and more!",
+    "👥 Become a member today and be part of our growing community",
+    "📱 Follow us on social media for updates and announcements",
   ];
 
   const quickStats = [
@@ -69,53 +70,6 @@ const Home = () => {
         </div>
       </div>
     </section>
-
-      {/* Welcome Section for First Years */}
-      <section className="py-16 bg-gradient-to-r from-green-600 to-red-600 text-white">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Welcome First Years! 🎉
-              </h2>
-              <p className="text-lg mb-6 opacity-90">
-                On behalf of the entire DeKUMSA fraternity, it is our greatest joy to welcome you into our family. 
-                As you begin this exciting chapter of your academic journey, know that you are not alone. 
-                Here, you have a community that values culture, friendship, mentorship, and growth.
-              </p>
-              <p className="text-lg mb-6 opacity-90">
-                DeKUMSA is more than an association, it is a home away from home. We are bound together by 
-                our shared heritage, and through unity, we support one another both socially and academically. 
-                This is a space where you will find guidance, laughter, and lifelong friendships.
-                From Joseph Okwemba - DeKUMSA Chairman.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-white text-green-600 hover:bg-gray-100">
-                  <Link to="/membership">Join DeKUMSA Family</Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-green-600">
-                  <Link to="/events">View Events</Link>
-                </Button>
-              </div>
-              <div className="mt-6 text-center">
-                <p className="text-xl font-semibold">#TOGETHERWECAN #MULEMBE #DEKUMSA</p>
-                <p className="text-lg italic mt-2">"Omundu ni wefwe, sibwangu"</p>
-              </div>
-            </div>
-            <div className="text-center">
-              <img
-                src="/lovable-uploads/3ebdab4a-8af4-443d-9cb7-06643b0aff23.png"
-                alt="DeKUMSA Welcome Poster for First Years"
-                className="w-full h-auto max-w-md mx-auto rounded-lg shadow-2xl"
-              />
-              <div className="mt-4 bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <p className="text-lg font-semibold">For more info: Call/WhatsApp Joseka</p>
-                <p className="text-2xl font-bold text-yellow-300">0796 190382</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Scrolling Announcements */}
       <section className="bg-yellow-400 py-3 overflow-hidden">

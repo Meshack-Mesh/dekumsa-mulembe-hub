@@ -75,6 +75,7 @@ interface UpcomingEvent {
   location: string;
   description: string;
   type: string;
+  poster?: string;
 }
 
 interface PastEvent {
@@ -95,14 +96,6 @@ const Events = () => {
   // ── Data ────────────────────────────────────────────────────────────────
   const upcomingEvents: UpcomingEvent[] = [
     {
-      title: 'First Weekly Meeting',
-      date: '2025-09-05',
-      time: '5:00 PM',
-      location: 'Room 14 SOB',
-      description: 'Join us for our first meeting of the semester to discuss upcoming activities and welcome new members.',
-      type: 'Meeting',
-    },
-    {
       title: 'Freshers Induction',
       date: '2025-09-12',
       time: '4:30 PM',
@@ -115,8 +108,9 @@ const Events = () => {
       date: '2025-09-27',
       time: 'Meeting Point: Roundabout',
       location: 'Zaina Falls',
-      description: 'Adventure hike to Zaina Falls for team building and enjoying nature with fellow members.',
+      description: 'Adventure hike to Zaina Falls for team building and enjoying nature with fellow members. Cost: Ksh. 250',
       type: 'Adventure',
+      poster: '/lovable-uploads/23a0597f-b03f-428b-83ec-acf06b76932b.png',
     },
     {
       title: 'Fun Day',
@@ -377,6 +371,15 @@ const Events = () => {
                 key={i}
                 className="border-l-4 border-green-500 hover:shadow-lg transition-shadow"
               >
+                {e.poster && (
+                  <div className="relative aspect-video bg-gray-200">
+                    <img
+                      src={e.poster}
+                      alt={`${e.title} poster`}
+                      className="w-full h-full object-cover rounded-t-lg"
+                    />
+                  </div>
+                )}
                 <CardHeader>
                   <CardTitle className="text-green-700">{e.title}</CardTitle>
                   <CardDescription className="flex items-center text-gray-600">
