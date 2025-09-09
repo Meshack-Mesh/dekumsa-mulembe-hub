@@ -141,7 +141,7 @@ const Home = () => {
             </div>
             <div className="text-center">
               <img
-                src="/lovable-uploads/23a0597f-b03f-428b-83ec-acf06b76932b.png"
+                src="/lovable-uploads/Hike copy.jpg"
                 alt="Zaina Falls Hike Adventure Poster"
                 className="w-full h-auto max-w-md mx-auto rounded-lg shadow-2xl"
               />
@@ -186,11 +186,6 @@ const Home = () => {
             <p className="text-xl md:text-2xl opacity-90">
               Dedan Kimathi University Mulembe Students Association
             </p>
-            <div className="mt-6 flex items-center justify-center space-x-2">
-              <Heart className="w-6 h-6 text-yellow-300" />
-              <p className="text-xl font-semibold text-yellow-300">Together We Can</p>
-              <Heart className="w-6 h-6 text-yellow-300" />
-            </div>
           </div>
         </div>
       </section>
