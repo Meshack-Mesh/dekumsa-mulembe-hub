@@ -94,20 +94,12 @@ const Events = () => {
 
   // ── Data ────────────────────────────────────────────────────────────────
   const upcomingEvents: UpcomingEvent[] = [
-    {
-      title: 'Freshers Induction',
-      date: '2025-09-12',
-      time: '4:30 PM',
-      location: 'Room 14 SOB',
-      description: 'Welcome ceremony for new DeKUMSA members. Learn about our culture, activities, and how to get involved.',
-      type: 'Induction',
-    },
-    {
+        {
       title: 'Zaina Falls Hike',
       date: '2025-09-27',
       time: 'Meeting Point: Roundabout',
       location: 'Zaina Falls',
-      description: 'Adventure hike to Zaina Falls for team building and enjoying nature with fellow members. Cost: Ksh. 250',
+      description: 'Form imejipa. Join us for a n adventurous hike to Zaina Falls for team building and enjoying nature with fellow members. Cost: Ksh. 300',
       type: 'Adventure',
     },
     {
@@ -131,7 +123,7 @@ const Events = () => {
       date: '2025-11-21',
       time: '6:00 PM - 6:00 AM',
       location: 'Venue TBD',
-      description: 'All-night celebration of Luhya culture with music, dance, food, and entertainment.',
+      description: 'Khabusie, Wandindi and all. All-night celebration of Luhya culture with music, dance, food, and entertainment. ',
       type: 'Cultural',
     },
   ];
