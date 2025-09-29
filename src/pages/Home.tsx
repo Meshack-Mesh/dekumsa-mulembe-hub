@@ -103,7 +103,7 @@ const Home = () => {
     </section>
 
       {/* Featured Event - Fun Day */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-cyan-500 via-yellow-400 to-rose-500 text-white">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
