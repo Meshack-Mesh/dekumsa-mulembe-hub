@@ -103,19 +103,19 @@ const Home = () => {
     </section>
 
       {/* Featured Event - Fun Day */}
-      <section className="py-16 bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-orange-500 to-yellow-500 text-white">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              🎉 Fun Day Coming Soon! 🎉
+              🎉 Fun Day - October 18th! 🎉
             </h2>
             <p className="text-lg md:text-xl mb-8 opacity-90 max-w-3xl mx-auto">
               Get ready for an incredible day filled with games, entertainment, food, and amazing prizes! 
               Join the DeKUMSA family for a memorable celebration.
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 inline-block mb-8">
-              <p className="text-xl font-semibold mb-2">📅 Date & Details Coming Soon!</p>
-              <p className="text-lg">Stay tuned for more information</p>
+              <p className="text-xl font-semibold mb-2">📅 October 18th, 2025</p>
+              <p className="text-lg">Venue: To Be Announced</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-white text-purple-600 hover:bg-gray-100">

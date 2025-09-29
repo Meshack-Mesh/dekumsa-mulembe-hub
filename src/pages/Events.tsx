@@ -94,14 +94,6 @@ const Events = () => {
 
   // ── Data ────────────────────────────────────────────────────────────────
   const upcomingEvents: UpcomingEvent[] = [
-        {
-      title: 'Zaina Falls Hike',
-      date: '2025-09-27',
-      time: 'Meeting Point: Roundabout',
-      location: 'Zaina Falls',
-      description: 'Form imejipa. Join us for a n adventurous hike to Zaina Falls for team building and enjoying nature with fellow members. Cost: Ksh. 300',
-      type: 'Adventure',
-    },
     {
       title: 'Fun Day',
       date: '2025-10-18',
