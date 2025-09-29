@@ -47,11 +47,10 @@ const WeeklyMeetingCard = () => {
       text: 'DeKUMSA Weekly Meeting',
       dates: `${formatDate(startDate)}/${formatDate(endDate)}`,
       details: 'Join us for our regular weekly meetings to discuss association matters and plan upcoming activities.',
-      location: 'Room 14 SOB, DeKUT',
-      recur: 'RRULE:FREQ=WEEKLY;BYDAY=FR'
+      location: 'Room 14 SOB, DeKUT'
     };
 
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventDetails.text)}&dates=${eventDetails.dates}&details=${encodeURIComponent(eventDetails.details)}&location=${encodeURIComponent(eventDetails.location)}&recur=${encodeURIComponent(eventDetails.recur)}`;
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventDetails.text)}&dates=${eventDetails.dates}&details=${encodeURIComponent(eventDetails.details)}&location=${encodeURIComponent(eventDetails.location)}`;
 
     window.open(googleCalendarUrl, '_blank');
 
