@@ -141,18 +141,24 @@ const Events = () => {
       ],
     },
     {
-      title: 'Karatina Fun Day',
-      date: 'March 2025',
+      title: 'Zaina Falls Hike',
+      date: '27th September 2025',
       description:
-        'A fun-filled day at Karatina with games, sports, and fellowship activities that brought the DeKUMSA family together.',
+        'A fun-filled hike to Zaina Falls brought the DeKUMSA family together with joy, laughter, and breathtaking scenery. The day was crowned with swimming, games, and dancing that made it truly unforgettable.',
       participants: '60 members',
       images: [
-        '/lovable-uploads/kara.jpg',
-        '/lovable-uploads/kara1.jpg',
-        '/lovable-uploads/kara2.jpg',
-        '/lovable-uploads/kara3.jpg',
-        '/lovable-uploads/kara4.jpg',
-        '/lovable-uploads/kara5.jpg',
+        '/lovable-uploads/IMG_0820.JPG',
+        '/lovable-uploads/IMG_0844 (1).JPG',
+        '/lovable-uploads/IMG_0856.JPG',
+        '/lovable-uploads/IMG_0909 (1).JPG',
+        '/lovable-uploads/IMG_0949.JPG',
+        '/lovable-uploads/IMG_1026 (1).JPG',
+        '/lovable-uploads/IMG_1034.JPG',
+        '/lovable-uploads/IMG_1149.JPG',
+        '/lovable-uploads/IMG_1217.JPG',
+        '/lovable-uploads/IMG_1281.JPG',
+        '/lovable-uploads/IMG_1368.JPG',
+
       ],
     },
     {
