@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 const Home = () => {
   const announcements = [
     "📅 Join us for weekly meetings every Friday at 5:00 PM in Room 14 SOB",
-    "🎉 Upcoming Event: Fun Day - Get ready for an exciting day of activities!",
+    "🎉 Upcoming Event: DeKUMSA Executive Elections - A chance for the association to have a free fair and democratic election",
     "👥 Become a member today and be part of our growing community",
     "📱 Follow us on social media for updates and announcements",
   ];
@@ -101,33 +101,6 @@ const Home = () => {
         </div>
       </div>
     </section>
-
-      {/* Featured Event - Fun Day */}
-      <section className="py-16 bg-gradient-to-r from-cyan-500 via-yellow-400 to-rose-500 text-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              🎉 Fun Day - October 25th! 🎉
-            </h2>
-            <p className="text-lg md:text-xl mb-8 opacity-90 max-w-3xl mx-auto">
-              Get ready for an incredible day filled with games, entertainment, food, and amazing prizes! 
-              Join the DeKUMSA family for a memorable celebration.
-            </p>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 inline-block mb-8">
-              <p className="text-xl font-semibold mb-2">📅 October 25th, 2025</p>
-              <p className="text-lg">Venue: To Be Announced</p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-purple-600 hover:bg-gray-100">
-                <Link to="/events">View All Events</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-white bg-white/10 text-white hover:bg-white hover:text-purple-600 backdrop-blur-sm">
-                <Link to="/contact">Contact Us for More Info</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Scrolling Announcements */}
       <section className="bg-yellow-400 py-3 overflow-hidden">

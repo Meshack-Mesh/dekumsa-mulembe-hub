@@ -94,15 +94,7 @@ const Events = () => {
 
   // ── Data ────────────────────────────────────────────────────────────────
   const upcomingEvents: UpcomingEvent[] = [
-    {
-      title: 'Fun Day',
-      date: '2025-10-25',
-      time: '10:00 AM',
-      location: 'Venue TBD',
-      description: 'A day filled with games, entertainment, and fellowship activities for all DeKUMSA members.',
-      type: 'Recreation',
-    },
-    {
+        {
       title: 'Executive Elections',
       date: '2025-11-07',
       time: '4:30 PM',
