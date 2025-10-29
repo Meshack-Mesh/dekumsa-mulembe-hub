@@ -72,7 +72,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-6">
-              {navItems.slice(0, 5).map((item) => {
+              {navItems.map((item) => {
                 const Icon = item.icon;
                 return (
                   <Link
