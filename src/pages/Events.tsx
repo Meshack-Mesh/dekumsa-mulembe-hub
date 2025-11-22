@@ -94,19 +94,11 @@ const Events = () => {
 
   // ── Data ────────────────────────────────────────────────────────────────
   const upcomingEvents: UpcomingEvent[] = [
-        {
-      title: 'Executive Elections',
-      date: '2025-11-07',
-      time: '4:30 PM',
-      location: 'Room 14 SOB',
-      description: 'Democratic elections for the new DeKUMSA executive committee. Your voice matters!',
-      type: 'Elections',
-    },
     {
       title: 'Mulembe Night Bash',
-      date: '2025-11-21',
+      date: '2025-12-12',
       time: '6:00 PM - 6:00 AM',
-      location: 'Venue TBD',
+      location: 'Freedom Hall',
       description: 'Khabusie, Wandindi and all. All-night celebration of Luhya culture with music, dance, food, and entertainment. ',
       type: 'Cultural',
     },

@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 const Home = () => {
   const announcements = [
     "📅 Join us for weekly meetings every Friday at 5:00 PM in Room 14 SOB",
-    "🎉 Upcoming Event: DeKUMSA Executive Elections - A chance for the association to have a free fair and democratic election",
+    "🎉 Get ready for Mulembe Night on 12th December 2025 at Freedom Hall - A night to celebrate our culture!",
     "👥 Become a member today and be part of our growing community",
     "📱 Follow us on social media for updates and announcements",
   ];
