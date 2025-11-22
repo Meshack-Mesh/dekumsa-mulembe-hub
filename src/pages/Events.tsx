@@ -26,6 +26,44 @@ const formatForGoogle = (d: Date) =>
   d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
 
 // ───────────────────────────────────────────────────────────────────────────
+// Countdown Hook
+// ───────────────────────────────────────────────────────────────────────────
+const useCountdown = (targetDate: Date) => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const now = new Date().getTime();
+      const target = targetDate.getTime();
+      const difference = target - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000),
+        });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
+
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
+  return timeLeft;
+};
+
+// ───────────────────────────────────────────────────────────────────────────
 // Weekly-meeting hook
 // ───────────────────────────────────────────────────────────────────────────
 const useWeeklyMeeting = () => {
@@ -91,6 +129,8 @@ interface PastEvent {
 const Events = () => {
   const { toast } = useToast();
   const { nextMeeting, addToCalendar } = useWeeklyMeeting();
+  const mulembeMightDate = new Date('2025-12-12T18:00:00');
+  const countdown = useCountdown(mulembeMightDate);
 
   // ── Data ────────────────────────────────────────────────────────────────
   const upcomingEvents: UpcomingEvent[] = [
@@ -360,6 +400,32 @@ const Events = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-700 mb-4">{e.description}</p>
+                  
+                  {/* Countdown Timer */}
+                  {e.title === 'Mulembe Night Bash' && (
+                    <div className="bg-gradient-to-r from-green-50 to-yellow-50 p-4 rounded-lg mb-4 border border-green-200">
+                      <p className="text-center text-sm font-semibold text-gray-700 mb-2">Event Countdown</p>
+                      <div className="grid grid-cols-4 gap-2 text-center">
+                        <div className="bg-white p-2 rounded shadow-sm">
+                          <div className="text-2xl font-bold text-green-700">{countdown.days}</div>
+                          <div className="text-xs text-gray-600">Days</div>
+                        </div>
+                        <div className="bg-white p-2 rounded shadow-sm">
+                          <div className="text-2xl font-bold text-green-700">{countdown.hours}</div>
+                          <div className="text-xs text-gray-600">Hours</div>
+                        </div>
+                        <div className="bg-white p-2 rounded shadow-sm">
+                          <div className="text-2xl font-bold text-green-700">{countdown.minutes}</div>
+                          <div className="text-xs text-gray-600">Minutes</div>
+                        </div>
+                        <div className="bg-white p-2 rounded shadow-sm">
+                          <div className="text-2xl font-bold text-green-700">{countdown.seconds}</div>
+                          <div className="text-xs text-gray-600">Seconds</div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  
                   <div className="text-sm text-gray-600 space-y-1">
                     <div className="flex items-center">
                       <Clock className="w-4 h-4 mr-2" />
