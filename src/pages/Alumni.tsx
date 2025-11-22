@@ -18,7 +18,7 @@ const Alumni = () => {
       name: "Yvonne Washika",
       year: "Class of 2024",
       course: "Information Technology",
-      currentPosition: "ICT Officer",
+      currentPosition: "Software Developer",
       impact: "As a former DEKUMSA Secretary and passionate Mulembe voice, organizing one of the most unforgettable DEKUMSA bashes at Munyeni House remains a proud highlight of my leadership.",
       quote: " DEKUMSA taught me the value of unity, cultural pride, and servant leadership — lessons I carry with me to this day.",
       image: "/lovable-uploads/placeholder.jpg"
