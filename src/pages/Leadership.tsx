@@ -7,14 +7,7 @@ import { Button } from '@/components/ui/button';
 
 const Leadership = () => {
   const leaders = [
-       {
-        name: "Beatrice Luvale",
-        position: "Patron",
-        phone: "0757 885349",
-        image: null,
-        message: "Providing guidance and wisdom to our leadership team. Ensuring we stay true to our values and mission."
-       },
-    {
+      {
       name: "Emmanuel Juma",
       position: "Chairperson",
       phone: "0796190382",
