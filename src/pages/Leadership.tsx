@@ -15,56 +15,56 @@ const Leadership = () => {
         message: "Providing guidance and wisdom to our leadership team. Ensuring we stay true to our values and mission."
        },
     {
-      name: "Joseph Okwemba",
+      name: "Emmanuel Juma",
       position: "Chairperson",
       phone: "0796190382",
       image: "/lovable-uploads/seka.jpg",
       message: "Leading with vision and dedication to serve our community. Together we build a stronger DeKUMSA for all members."
     },
     {
-      name: "Ivy Dina",
+      name: "Bellah Ogale",
       position: "Vice Chairperson",
       phone: "0750 847351",
       image: "/lovable-uploads/Ivy.jpg",
       message: "Supporting our chairperson and ensuring smooth operations. Always ready to step up when needed."
     },
     {
-      name: "Austin Ouma",
+      name: "Keith Juma",
       position: "Secretary",
       phone: "0743 892264",
       image: "/lovable-uploads/WhatsApp Image 2024-10-12 at 15.32.22_d4e5538b.png",
       message: "Keeping accurate records and ensuring transparency in all our proceedings. Your voice matters in every meeting."
     },
 {
-      name: "Melisha Melvin",
+      name: "Esther Akinyi",
       position: "Assistant Secretary",
       phone: "0707 319957",
       image: "/lovable-uploads/Melisha.jpg",
       message: "Keeping accurate records and ensuring transparency in all our proceedings. Your voice matters in every meeting."
     },
     {
-      name: "Edith Asachita",
+      name: "Faith Muhonja",
       position: "Treasurer",
       phone: "0703299411",
       image: "/lovable-uploads/5e4b3a83-07b5-458d-8ae6-26ade4ba6358.png",
       message: "Managing our finances with integrity and accountability. Every shilling is invested wisely for our members' benefit."
     },
     {
-      name: "Sceva Aquila",
+      name: "Austin Ouma",
       position: "Organizing Secretary",
       phone: "0745256547",
       image: "/lovable-uploads/Sceva.png",
       message: "Coordinating events and activities that bring us together. Making every DeKUMSA event memorable and meaningful."
     },
     {
-      name: "Emmanuel Juma",
+      name: "Adrian Wamalwa",
       position: "Public Relations Officer",
       phone: "0741224547",
             image: "/lovable-uploads/36522acf-48f9-4c5e-9c41-3e03f4aa03e6.png",
       message: "Building bridges and maintaining our reputation. Connecting DeKUMSA with the wider university community."
     },
 {
-      name: "Daniel Nyongesa",
+      name: "Victor",
       position: "Assistant PR",
       phone: "0741 728238",
       image: "/lovable-uploads/WhatsApp Image 2024-10-12 at 20.07.29_f8499861.jpg",
@@ -77,14 +77,7 @@ const Leadership = () => {
       image: "/lovable-uploads/wasike.jpg",
       message: "Leading by example in sports and physical activities. Promoting health, fitness, and team spirit among members."
     },
- {
-      name: "Agani Chelsea",
-      position: "Gender Mainstreaming DeKUTSO Representative",
-      phone: "0742 298348",
-      image: null,
-      message: "Promoting equality and inclusion across the entire school. Advocating for student welfare, addressing gender-based concerns, and creating a safe space for open dialogue."
-    }
-  ];
+   ];
 
   return (
     <div className="min-h-screen bg-background">
